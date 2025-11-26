@@ -4,270 +4,191 @@
   <meta charset="UTF-8">
   <title>Sistema de Fichas de Indicadores de Desempenho</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
       background: #f5f5f5;
-      color: #333;
     }
-
     header {
       background: #004d7a;
       color: #fff;
       padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
     }
-
     header h1 {
       margin: 0;
-      font-size: 18px;
+      font-size: 20px;
     }
-
-    header .subtitle {
-      font-size: 12px;
-      opacity: 0.9;
-    }
-
-    main {
-      padding: 10px 20px 30px 20px;
-    }
-
     nav {
-      margin-top: 10px;
-      margin-bottom: 10px;
       display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
+      background: #e0e0e0;
+      border-bottom: 1px solid #ccc;
     }
-
     nav button {
-      padding: 6px 10px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-      background: #eee;
+      flex: 1;
+      padding: 10px;
+      border: none;
+      background: #e0e0e0;
       cursor: pointer;
-      font-size: 13px;
+      font-weight: bold;
     }
-
     nav button.active {
-      background: #004d7a;
-      color: #fff;
-      border-color: #004d7a;
+      background: #ffffff;
+      border-bottom: 3px solid #004d7a;
     }
-
+    main {
+      padding: 20px;
+    }
     .tab {
       display: none;
-      background: #fff;
-      padding: 15px;
+      background: #ffffff;
+      padding: 20px;
       border-radius: 4px;
-      box-shadow: 0 0 4px rgba(0,0,0,0.1);
-      margin-top: 5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
     }
-
     .tab.active {
       display: block;
     }
-
     h2 {
       margin-top: 0;
-      font-size: 16px;
-      color: #004d7a;
     }
-
-    h3 {
-      margin-top: 15px;
-      font-size: 14px;
-      color: #004d7a;
-    }
-
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
     .form-group {
-      margin-bottom: 8px;
-      flex: 1;
-      min-width: 150px;
+      margin-bottom: 10px;
     }
-
     label {
       display: block;
-      font-size: 12px;
-      margin-bottom: 2px;
+      font-weight: bold;
+      margin-bottom: 4px;
     }
-
     input[type="text"],
-    input[type="number"],
     input[type="password"],
     select,
     textarea {
       width: 100%;
-      padding: 4px;
-      font-size: 12px;
-      border-radius: 3px;
+      padding: 6px;
+      box-sizing: border-box;
       border: 1px solid #ccc;
+      border-radius: 3px;
     }
-
     textarea {
-      min-height: 50px;
+      min-height: 60px;
       resize: vertical;
     }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 12px;
-      margin-top: 8px;
+    .row {
+      display: flex;
+      gap: 10px;
     }
-
-    th, td {
-      border: 1px solid #ddd;
-      padding: 4px;
-      vertical-align: top;
+    .row > div {
+      flex: 1;
     }
-
-    th {
-      background: #f0f0f0;
+    button {
+      padding: 8px 14px;
+      border-radius: 3px;
+      border: none;
+      cursor: pointer;
+      margin-right: 6px;
     }
-
-    tr:nth-child(even) {
-      background: #fafafa;
-    }
-
     .btn-primary {
       background: #004d7a;
       color: #fff;
-      border: 1px solid #004d7a;
-      border-radius: 4px;
-      padding: 5px 10px;
-      font-size: 12px;
-      cursor: pointer;
     }
-
     .btn-secondary {
-      background: #e0e0e0;
-      color: #333;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      padding: 5px 10px;
-      font-size: 12px;
-      cursor: pointer;
+      background: #888;
+      color: #fff;
     }
-
     .btn-danger {
-      background: #b71c1c;
+      background: #c62828;
       color: #fff;
-      border: 1px solid #b71c1c;
-      border-radius: 4px;
-      padding: 5px 10px;
-      font-size: 12px;
-      cursor: pointer;
     }
-
     .btn-warning {
-      background: #ff9800;
-      color: #fff;
-      border: 1px solid #ff9800;
-      border-radius: 4px;
-      padding: 5px 10px;
-      font-size: 12px;
-      cursor: pointer;
+      background: #f9a825;
+      color: #000;
     }
-
     .btn-success {
       background: #2e7d32;
       color: #fff;
-      border: 1px solid #2e7d32;
-      border-radius: 4px;
-      padding: 5px 10px;
-      font-size: 12px;
-      cursor: pointer;
     }
-
     .btn-small {
-      padding: 3px 6px;
-      font-size: 11px;
-    }
-
-    .message {
+      padding: 4px 8px;
       font-size: 12px;
-      margin: 5px 0;
-      padding: 5px;
-      border-radius: 3px;
     }
-
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 13px;
+    }
+    table th, table td {
+      border: 1px solid #ccc;
+      padding: 5px;
+      text-align: left;
+    }
+    table th {
+      background: #f0f0f0;
+    }
+    .message {
+      margin: 10px 0;
+      padding: 8px;
+      border-radius: 3px;
+      font-size: 13px;
+    }
     .message.info {
       background: #e3f2fd;
-      color: #0d47a1;
       border: 1px solid #90caf9;
     }
-
-    .message.success {
-      background: #e8f5e9;
-      color: #1b5e20;
-      border: 1px solid #a5d6a7;
-    }
-
     .message.error {
       background: #ffebee;
-      color: #b71c1c;
-      border: 1px solid #ef9a9a;
+      border: 1px solid #ef5350;
     }
-
+    .message.success {
+      background: #e8f5e9;
+      border: 1px solid #66bb6a;
+    }
     .highlight-final {
       font-weight: bold;
-      color: #1b5e20;
+      color: #c62828;
     }
-
     @media print {
-      body {
-        background: #fff;
-      }
       header, nav, .no-print {
         display: none !important;
       }
-      main {
-        padding: 0;
+      body {
+        background: #ffffff;
       }
-      table {
-        font-size: 10px;
+      .tab {
+        box-shadow: none;
       }
     }
   </style>
 </head>
 <body>
-
 <header>
-  <div>
-    <h1>Sistema de Fichas de Indicadores de Desempenho</h1>
-    <div class="subtitle">Cadastro de indicadores, metas e relatórios para gestão de desempenho</div>
-  </div>
+  <h1 style="display:inline-block; margin-right:20px;">
+    Sistema de Fichas de Indicadores de Desempenho
+  </h1>
+
+  <a href="ajuda.html"
+     target="_blank"
+     style="color:#fff; font-size:13px; text-decoration:underline;">
+    Ajuda do sistema
+  </a>
 </header>
 
+<nav class="no-print">
+  <button class="active" data-tab="tab-gestor">GESTOR RESPONSÁVEL</button>
+  <button data-tab="tab-admin">ADMIN</button>
+  <button data-tab="tab-metas">METAS</button>
+  <button data-tab="tab-orientacoes">ORIENTAÇÕES</button>
+  <button data-tab="tab-resultados">RESULTADOS</button>
+</nav>
+
 <main>
-  <nav class="no-print">
-    <button class="active" data-tab="tab-gestor">GESTOR RESPONSÁVEL</button>
-    <button data-tab="tab-admin">ADMIN</button>
-    <button data-tab="tab-metas">METAS</button>
-    <button data-tab="tab-orientacoes">ORIENTAÇÕES</button>
-    <button data-tab="tab-resultados">RESULTADOS</button>
-  </nav>
-
-  <!-- ABA GESTOR RESPONSÁVEL -->
+  <!-- ABA GESTOR -->
   <section id="tab-gestor" class="tab active">
-    <h2>Preenchimento da Ficha de Indicadores – Gestor Responsável</h2>
+    <h2>Cadastro de Detalhes dos Indicadores (Gestor Responsável)</h2>
 
-    <div id="gestor-info-msg" class="message info">
-      Selecione o seu nome como gestor responsável para visualizar e preencher os indicadores sob sua responsabilidade.
+    <div id="gestor-msg" class="message info">
+      Selecione o seu nome, escolha um indicador sob sua responsabilidade e preencha os detalhes do indicador.
     </div>
 
     <div class="form-group no-print">
@@ -277,136 +198,178 @@
       </select>
     </div>
 
-    <h3>Indicadores sob sua responsabilidade</h3>
-    <table id="tabela-gestor-indicadores">
-      <thead>
-      <tr>
-        <th>Perspectiva</th>
-        <th>Objetivo Estratégico</th>
-        <th>Indicador de desempenho</th>
-        <th>Status do detalhamento</th>
-        <th class="no-print">Ações</th>
-      </tr>
-      </thead>
-      <tbody>
-      <!-- via JS -->
-      </tbody>
-    </table>
+    <div class="no-print">
+      <h3>Indicadores sob sua responsabilidade</h3>
+      <table id="tabela-gestor-indicadores">
+        <thead>
+        <tr>
+          <th>Perspectiva</th>
+          <th>Objetivo Estratégico</th>
+          <th>Indicador</th>
+          <th>Status</th>
+          <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- via JS -->
+        </tbody>
+      </table>
+    </div>
 
-    <hr>
+    <hr class="no-print">
 
-    <h3>Ficha de Indicadores – Detalhamento Técnico</h3>
-    <form id="form-gestor-indicador" onsubmit="event.preventDefault();">
-      <input type="hidden" id="gestor-indicador-id">
+    <h3>Ficha do Indicador</h3>
+    <form id="form-indicador" onsubmit="event.preventDefault();">
+      <input type="hidden" id="indicador-id">
 
       <div class="row">
         <div class="form-group">
           <label>Perspectiva</label>
-          <input type="text" id="gestor-perspectiva-nome" disabled>
+          <input type="text" id="perspectiva-nome" disabled>
         </div>
         <div class="form-group">
           <label>Objetivo Estratégico</label>
-          <input type="text" id="gestor-objetivo-nome" disabled>
+          <input type="text" id="objetivo-nome" disabled>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Indicador de desempenho</label>
+        <input type="text" id="indicador-nome" disabled>
+      </div>
+
+      <div class="form-group">
+        <label for="descricao-operacional">Descrição operacional</label>
+        <textarea id="descricao-operacional" placeholder="Descreva de forma clara o que o indicador mede e como será medido"></textarea>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label for="formula">Fórmula</label>
+          <textarea id="formula" placeholder="Ex.: (Receita Líquida / Ativo Total) * 100"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="unidade-medida">Unidade de Medida</label>
+          <select id="unidade-medida">
+            <option value="">Selecione...</option>
+            <option>Número</option>
+            <option>R$</option>
+            <option>%</option>
+            <option>ton</option>
+            <option>kg</option>
+            <option>m</option>
+            <option>dias</option>
+            <option>score</option>
+            <option>Outro</option>
+          </select>
         </div>
       </div>
 
       <div class="row">
         <div class="form-group">
-          <label>Indicador de desempenho</label>
-          <input type="text" id="gestor-indicador-nome" disabled>
+          <label for="fonte-dados">Fonte de dados</label>
+          <input type="text" id="fonte-dados" placeholder="Sistema, relatórios, sites, planilhas, etc.">
         </div>
         <div class="form-group">
-          <label>Unidade de medida do indicador</label>
-          <input type="text" id="gestor-unidade" placeholder="Ex.: %, R$, número de ocorrências, índice composto etc.">
+          <label for="periodicidade">Periodicidade</label>
+          <select id="periodicidade">
+            <option value="">Selecione...</option>
+            <option>Mensal</option>
+            <option>Bimestral</option>
+            <option>Trimestral</option>
+            <option>Quadrimestral</option>
+            <option>Semestral</option>
+            <option>Anual</option>
+          </select>
         </div>
       </div>
 
       <div class="form-group">
-        <label>Descrição operacional do indicador</label>
-        <textarea id="gestor-descricao" placeholder="Explique o que o indicador mede, qual a lógica e o contexto de uso."></textarea>
-      </div>
-
-      <div class="form-group">
-        <label>Fórmula de cálculo do indicador</label>
-        <textarea id="gestor-formula" placeholder="Descreva a fórmula de cálculo – numerador, denominador, multiplicadores, filtros etc."></textarea>
-      </div>
-
-      <div class="row">
-        <div class="form-group">
-          <label>Fonte dos dados</label>
-          <input type="text" id="gestor-fonte" placeholder="Sistema, planilha, relatório, base de dados etc.">
-        </div>
-        <div class="form-group">
-          <label>Periodicidade de apuração</label>
-          <input type="text" id="gestor-periodicidade" placeholder="Mensal, trimestral, anual, evento etc.">
-        </div>
-        <div class="form-group">
-          <label>Polaridade (quanto maior / menor, melhor)</label>
-          <input type="text" id="gestor-polaridade" placeholder="Ex.: Quanto maior melhor / Quanto menor melhor / Faixa ideal etc.">
-        </div>
+        <label for="polaridade">Polaridade</label>
+        <select id="polaridade">
+          <option value="">Selecione...</option>
+          <option>Quanto maior, melhor</option>
+          <option>Quanto menor, melhor</option>
+          <option>Estável</option>
+        </select>
       </div>
 
       <div id="gestor-form-msg" class="message info no-print">
-        Selecione um indicador da lista para preencher ou editar os detalhes técnicos.
+        Selecione um indicador da lista acima. Use “Salvar rascunho” para salvamento parcial e “Salvar definitivo” para finalizar, em lote, os indicadores em rascunho do gestor.
       </div>
 
       <div class="no-print" style="margin-top: 10px;">
-        <button type="button" class="btn-secondary" onclick="salvarIndicadorGestor('draft')">Salvar rascunho</button>
-        <button type="button" class="btn-success" onclick="salvarIndicadorGestor('final')">
-          SALVAR DEFINITIVO (TRAVAR INDICADORES)
+        <button type="button" class="btn-secondary" onclick="salvarIndicador('draft')">Salvar rascunho (salvamento parcial)</button>
+        <button type="button" class="btn-success" onclick="salvarIndicador('final')">
+          SALVAR DEFINITIVO (travar indicadores completos)
         </button>
-        <button type="button" class="btn-secondary" onclick="limparFormularioGestor()">Limpar formulário</button>
+        <button type="button" class="btn-secondary" onclick="limparFormulario()">Limpar formulário</button>
       </div>
-
-      <p class="message info no-print" style="margin-top: 10px;">
-        Atenção: ao salvar como <strong>definitivo</strong>, os indicadores sob sua responsabilidade
-        ficarão bloqueados para edição. A liberação para nova edição somente poderá ser feita pelo ADMIN.
-      </p>
     </form>
   </section>
 
   <!-- ABA ADMIN -->
   <section id="tab-admin" class="tab">
-    <h2>Administração do Sistema – Cadastro de Estrutura</h2>
+    <h2>Administração do Sistema (ADMIN)</h2>
 
-    <div class="message info">
-      Esta área é restrita ao administrador do sistema. Utilize a senha de ADMIN para cadastrar e manter gestores,
-      perspectivas, objetivos e indicadores, bem como para liberar edições já travadas.
-    </div>
-
-    <div class="row no-print">
-      <div class="form-group">
-        <label for="admin-password">Senha do ADMIN</label>
-        <input type="password" id="admin-password" placeholder="Informe a senha de administração">
-      </div>
-      <div class="form-group" style="margin-top: 18px;">
-        <button class="btn-primary" onclick="loginAdmin()">Entrar / Revalidar senha</button>
-        <button class="btn-secondary" onclick="logoutAdmin()">Sair do ADMIN</button>
-      </div>
-    </div>
-
-    <div id="admin-login-msg" class="message info no-print">
-      Para cadastrar ou editar gestores, perspectivas, objetivos e indicadores, é necessário autenticar-se como ADMIN.
-    </div>
-
-    <div id="admin-protected" style="display:none;">
-      <hr>
-      <h3>Cadastro de Gestores Responsáveis</h3>
+    <!-- Área de login sempre visível -->
+    <div id="admin-login-area" class="no-print">
       <div class="row">
         <div class="form-group">
-          <label for="gestor-nome-admin">Nome do Gestor</label>
-          <input type="text" id="gestor-nome-admin">
+          <label for="admin-password">Senha do ADMIN</label>
+          <input type="password" id="admin-password" placeholder="Digite a senha do ADMIN">
         </div>
-        <div class="form-group" style="margin-top: 18px;">
-          <button id="btn-add-gestor" class="btn-primary" onclick="adicionarGestor()">Adicionar Gestor</button>
+        <div class="form-group" style="align-self: flex-end;">
+          <button class="btn-primary" onclick="loginAdmin()">Entrar / Revalidar senha</button>
+        </div>
+      </div>
+      <div id="admin-login-msg" class="message info" style="margin-top: 10px;">
+        Senha padrão inicial: <strong>admin123</strong>. Após o login, você pode alterá-la.
+      </div>
+    </div>
+
+    <!-- Mensagem geral -->
+    <div id="admin-msg" class="message info">
+      Para editar, excluir ou liberar indicadores, é necessário estar autenticado como ADMIN. Sem login, os dados ficam apenas em modo leitura e o conteúdo de administração permanece oculto.
+    </div>
+
+    <!-- Bloco PROTEGIDO: só aparece após login do ADMIN -->
+    <div id="admin-protected" style="display:none;">
+
+      <div class="no-print" style="margin: 10px 0;">
+        <button id="btn-validar-cadastro" class="btn-success" onclick="validarCadastro()">
+          Validar cadastro (finalizar configurações)
+        </button>
+      </div>
+
+      <h3>Configuração da senha do ADMIN</h3>
+      <div class="row no-print">
+        <div class="form-group">
+          <label for="admin-new-password">Nova senha do ADMIN</label>
+          <input type="password" id="admin-new-password" placeholder="Digite a nova senha">
+        </div>
+        <div class="form-group" style="align-self: flex-end;">
+          <button id="btn-alterar-senha" class="btn-secondary" onclick="alterarSenhaAdmin()">Alterar senha</button>
         </div>
       </div>
 
+      <hr>
+
+      <h3>Cadastro de Gestores Responsáveis</h3>
+      <div class="row no-print">
+        <div class="form-group">
+          <label for="novo-gestor">Nome do Gestor Responsável</label>
+          <input type="text" id="novo-gestor" placeholder="Nome completo do gestor">
+        </div>
+        <div class="form-group" style="align-self: flex-end;">
+          <button id="btn-adicionar-gestor" class="btn-primary" onclick="adicionarGestor()">Adicionar Gestor</button>
+        </div>
+      </div>
       <table id="tabela-gestores">
         <thead>
         <tr>
-          <th>Nome do Gestor</th>
-          <th class="no-print">Ações</th>
+          <th>Gestor Responsável</th>
+          <th>Ações</th>
         </tr>
         </thead>
         <tbody>
@@ -417,21 +380,20 @@
       <hr>
 
       <h3>Cadastro de Perspectivas</h3>
-      <div class="row">
+      <div class="row no-print">
         <div class="form-group">
-          <label for="perspectiva-nome">Nome da Perspectiva</label>
-          <input type="text" id="perspectiva-nome" placeholder="Ex.: Financeira, Clientes e Mercado, Processos, Pessoas etc.">
+          <label for="nova-perspectiva">Nova Perspectiva</label>
+          <input type="text" id="nova-perspectiva" placeholder="Ex.: Financeira, Clientes, Processos, Pessoas...">
         </div>
-        <div class="form-group" style="margin-top: 18px;">
-          <button id="btn-add-perspectiva" class="btn-primary" onclick="adicionarPerspectiva()">Adicionar Perspectiva</button>
+        <div class="form-group" style="align-self: flex-end;">
+          <button id="btn-adicionar-perspectiva" class="btn-primary" onclick="adicionarPerspectiva()">Adicionar Perspectiva</button>
         </div>
       </div>
-
       <table id="tabela-perspectivas">
         <thead>
         <tr>
-          <th>Nome da Perspectiva</th>
-          <th class="no-print">Ações</th>
+          <th>Perspectiva</th>
+          <th>Ações</th>
         </tr>
         </thead>
         <tbody>
@@ -441,39 +403,37 @@
 
       <hr>
 
-      <h3>Cadastro de Objetivos Estratégicos</h3>
-      <div class="row">
+      <h3>Cadastro de Objetivos Estratégicos (vinculados à Perspectiva e ao Gestor)</h3>
+      <div class="row no-print">
         <div class="form-group">
-          <label for="objetivo-perspectiva-select">Perspectiva</label>
-          <select id="objetivo-perspectiva-select">
+          <label for="perspectiva-objetivo-select">Perspectiva</label>
+          <select id="perspectiva-objetivo-select">
             <option value="">Selecione...</option>
           </select>
         </div>
         <div class="form-group">
-          <label for="objetivo-gestor-select">Gestor responsável</label>
-          <select id="objetivo-gestor-select">
+          <label for="gestor-objetivo-select">Gestor Responsável</label>
+          <select id="gestor-objetivo-select">
             <option value="">Selecione...</option>
           </select>
         </div>
       </div>
-
-      <div class="row">
+      <div class="row no-print">
         <div class="form-group">
-          <label for="objetivo-nome">Nome do Objetivo Estratégico</label>
-          <input type="text" id="objetivo-nome" placeholder="Iniciar com verbo de ação, ex.: Aumentar, Desenvolver, Aprimorar etc.">
+          <label for="novo-objetivo">Novo Objetivo Estratégico</label>
+          <input type="text" id="novo-objetivo" placeholder="Ex.: Aumentar a lucratividade...">
         </div>
-        <div class="form-group" style="margin-top: 18px;">
-          <button id="btn-add-objetivo" class="btn-primary" onclick="adicionarObjetivo()">Adicionar Objetivo</button>
+        <div class="form-group" style="align-self: flex-end;">
+          <button id="btn-adicionar-objetivo" class="btn-primary" onclick="adicionarObjetivo()">Adicionar Objetivo</button>
         </div>
       </div>
-
       <table id="tabela-objetivos">
         <thead>
         <tr>
           <th>Perspectiva</th>
           <th>Objetivo Estratégico</th>
           <th>Gestor Responsável</th>
-          <th class="no-print">Ações</th>
+          <th>Ações</th>
         </tr>
         </thead>
         <tbody>
@@ -483,54 +443,45 @@
 
       <hr>
 
-      <h3>Cadastro de Indicadores de Desempenho</h3>
-      <div class="row">
+      <h3>Cadastro de Indicadores (vinculados a Objetivos e Gestores)</h3>
+      <div class="row no-print">
         <div class="form-group">
-          <label for="indicador-perspectiva-select">Perspectiva</label>
-          <select id="indicador-perspectiva-select" onchange="onPerspectivaIndicadorChange()">
+          <label for="objetivo-indicador-select">Objetivo Estratégico</label>
+          <select id="objetivo-indicador-select">
             <option value="">Selecione...</option>
           </select>
         </div>
         <div class="form-group">
-          <label for="indicador-objetivo-select">Objetivo Estratégico</label>
-          <select id="indicador-objetivo-select">
-            <option value="">Selecione...</option>
-          </select>
+          <label>Perspectiva / Gestor</label>
+          <input type="text" id="info-objetivo-indicador" disabled>
         </div>
+      </div>
+      <div class="row no-print">
         <div class="form-group">
-          <label for="indicador-gestor-select-admin">Gestor Responsável</label>
-          <select id="indicador-gestor-select-admin">
-            <option value="">Selecione...</option>
-          </select>
+          <label for="novo-indicador-nome">Nome do Indicador</label>
+          <input type="text" id="novo-indicador-nome" placeholder="Ex.: Margem Líquida (%)">
+        </div>
+        <div class="form-group" style="align-self: flex-end;">
+          <button id="btn-adicionar-indicador" class="btn-primary" onclick="adicionarIndicadorAdmin()">Adicionar Indicador</button>
         </div>
       </div>
 
-      <div class="row">
-        <div class="form-group">
-          <label for="indicador-nome-admin">Nome do Indicador de Desempenho</label>
-          <input type="text" id="indicador-nome-admin" placeholder="Ex.: Faturamento, EBITDA, Taxa de Conversão, NPS, etc.">
-        </div>
-        <div class="form-group" style="margin-top: 18px;">
-          <button id="btn-add-indicador" class="btn-primary" onclick="adicionarIndicador()">Adicionar Indicador</button>
-        </div>
-      </div>
-
+      <h4>Lista de Indicadores (Admin)</h4>
       <table id="tabela-admin-indicadores">
         <thead>
         <tr>
           <th>Perspectiva</th>
           <th>Objetivo Estratégico</th>
-          <th>Indicador de Desempenho</th>
+          <th>Indicador</th>
           <th>Gestor Responsável</th>
-          <th>Status do Detalhamento</th>
-          <th class="no-print">Ações</th>
+          <th>Status</th>
+          <th>Ações (ADMIN)</th>
         </tr>
         </thead>
         <tbody>
         <!-- via JS -->
         </tbody>
       </table>
-
       <hr>
 
       <h3>Cadastro de Metas dos Indicadores (ADMIN)</h3>
@@ -547,7 +498,7 @@
           <th>Ano das metas</th>
           <th>Tipo de cálculo</th>
           <th>Status das metas</th>
-          <th class="no-print">Ações (ADMIN)</th>
+          <th>Ações (ADMIN)</th>
         </tr>
         </thead>
         <tbody>
@@ -555,28 +506,7 @@
         </tbody>
       </table>
 
-      <hr>
-
-      <div class="row no-print">
-        <div class="form-group">
-          <label for="admin-new-password">Alterar senha do ADMIN</label>
-          <input type="password" id="admin-new-password" placeholder="Nova senha">
-        </div>
-        <div class="form-group" style="margin-top: 18px;">
-          <button id="btn-alterar-senha" class="btn-warning" onclick="alterarSenhaAdmin()">Alterar senha</button>
-        </div>
-      </div>
-
-      <div class="no-print" style="margin-top: 10px;">
-        <button id="btn-validar-cadastro" class="btn-success" onclick="validarCadastro()">
-          Validar cadastro (encerrar sessão de administração)
-        </button>
-      </div>
-
-      <div id="admin-validacao-msg" class="message info" style="margin-top: 10px;">
-        Utilize esta opção após concluir cadastros e ajustes, para retornar o sistema ao modo de uso normal.
-      </div>
-    </div>
+    </div> <!-- fim admin-protected -->
   </section>
 
   <!-- ABA METAS -->
@@ -852,12 +782,109 @@
     </table>
   </section>
 
-  <!-- ABA ORIENTAÇÕES (mantida igual à sua versão anterior, não repito aqui por brevidade) -->
-  <!-- ... -->
+  <!-- ABA ORIENTAÇÕES -->
+  <section id="tab-orientacoes" class="tab">
+    <h2>Orientações para Preenchimento da Ficha de Indicadores</h2>
 
-  <!-- ABA RESULTADOS (mantida igual à sua versão anterior, não repito aqui por brevidade) -->
-  <!-- ... -->
+    <ol>
+      <li>
+        <strong>Perspectiva</strong> – Derivada do modelo BSC (Balanced Scorecard). Exemplos: Financeira, Clientes, Processos Internos,
+        Aprendizado e Crescimento. Cada objetivo estratégico e indicador deve estar vinculado a uma dessas perspectivas.
+      </li>
+      <br>
+      <li>
+        <strong>Objetivo Estratégico</strong> – Extraído do Mapa Estratégico da organização. Representa a intenção de resultado de médio e longo prazo
+        (ex.: “Aumentar a rentabilidade dos negócios”). Cada indicador de desempenho deve estar claramente associado a um objetivo.
+      </li>
+      <br>
+      <li>
+        <strong>Indicador de desempenho</strong> – Nome do indicador que ficará vinculado ao objetivo estratégico. Recomenda-se não mais que 5 indicadores por objetivo.
+        O nome do indicador deve ser coerente com a unidade de medida. Exemplos:
+        Índice (%) , Taxa (%) , Margem (%) , Número (valor absoluto), Tempo (horas ou dias), etc.
+      </li>
+      <br>
+      <li>
+        <strong>Descrição Operacional</strong> – Texto descritivo do indicador escolhido. Deve ser claro e permitir a compreensão inequívoca
+        do que o indicador mede e como será medido. Todos os detalhes específicos (o que entra, o que não entra, cortes e filtros)
+        devem ser registrados aqui.
+      </li>
+      <br>
+      <li>
+        <strong>Fórmula</strong> – Descrição objetiva do cálculo do indicador, incluindo as variáveis necessárias e a operação
+        matemática (soma, média, divisão, etc.). Sempre que possível, represente em formato de fórmula quantitativa, evitando texto descritivo.
+        Exemplo: <em>(Lucro Líquido / Receita Operacional Líquida) × 100</em>.
+      </li>
+      <br>
+      <li>
+        <strong>Unidade de medida</strong> – Variável representativa da medida do indicador (R$, %, Índice, Unidades, Toneladas, R$/kg, etc.).
+        A unidade deve ser coerente com o nome e com a fórmula do indicador.
+      </li>
+      <br>
+      <li>
+        <strong>Fonte de dados</strong> – Origem dos dados utilizados no cálculo do indicador (Sistema, relatórios gerenciais,
+        sites institucionais, planilhas oficiais, etc.). A fonte deve ser formalizada e rastreável, permitindo conferência posterior.
+      </li>
+      <br>
+      <li>
+        <strong>Periodicidade</strong> – Frequência de medição do indicador. O padrão sugerido é mensal,
+        mas a natureza do indicador pode exigir periodicidade diferente (bimestral, trimestral, semestral, anual).
+      </li>
+      <br>
+      <li>
+        <strong>Polaridade</strong> – Vetor de análise do resultado do indicador, que orienta a interpretação da evolução.
+        As opções são: “Quanto maior, melhor”, “Quanto menor, melhor” ou “Estável”. A escolha deve facilitar a monitoração
+        e leitura dos resultados.
+      </li>
+    </ol>
+  </section>
 
+  <!-- ABA RESULTADOS -->
+  <section id="tab-resultados" class="tab">
+    <h2>Consulta de Resultados</h2>
+
+    <div class="no-print">
+      <div class="row">
+        <div class="form-group">
+          <label for="filtro-perspectiva">Filtrar por Perspectiva</label>
+          <select id="filtro-perspectiva" onchange="renderTabelaResultados()">
+            <option value="">Todas</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="filtro-objetivo">Filtrar por Objetivo Estratégico</label>
+          <select id="filtro-objetivo" onchange="renderTabelaResultados()">
+            <option value="">Todos</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="margin: 10px 0;">
+        <button class="btn-secondary" onclick="window.print()">Imprimir relatório</button>
+        <button class="btn-primary" onclick="exportarCSV()">Exportar para Excel (CSV)</button>
+      </div>
+    </div>
+
+    <table id="tabela-resultados">
+      <thead>
+      <tr>
+        <th>Perspectiva</th>
+        <th>Objetivo Estratégico</th>
+        <th>Indicador</th>
+        <th>Descrição operacional</th>
+        <th>Fórmula</th>
+        <th>Unidade</th>
+        <th>Fonte de dados</th>
+        <th>Periodicidade</th>
+        <th>Polaridade</th>
+        <th>Gestor</th>
+        <th>Status</th>
+      </tr>
+      </thead>
+      <tbody>
+      <!-- via JS -->
+      </tbody>
+    </table>
+  </section>
 </main>
 
 <script>
@@ -866,41 +893,24 @@
   // ==========================
   const STORAGE_KEY = 'sistemaIndicadoresV2';
 
-  let appData = {
-    adminPassword: 'admin123',
-    perspectives: [],
-    objectives: [],
-    managers: [],
-    indicators: [],
-    metas: []
+ let appData = {
+    adminPassword: 'admin123', // senha padrão inicial
+    perspectives: [],          // {id, nome}
+    objectives: [],            // {id, perspectivaId, nome, gestorId}
+    managers: [],              // {id, nome}
+    indicators: [],            // {id, perspectivaId, objetivoId, gestorId, indicador, descricao, formula, unidade, fonte, periodicidade, polaridade, status}
+    metas: []                  // NOVO: {id, indicadorId, ano, tipoCalculo, metas, faixas, ref1, ref2, ref3, status}
   };
 
-  async function carregarDados() {
+  function carregarDados() {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
       try {
         const parsed = JSON.parse(raw);
         appData = Object.assign(appData, parsed);
-        return;
       } catch (e) {
-        console.error('Erro ao carregar dados do localStorage, tentando carregar estrutura padrão.', e);
+        console.error('Erro ao carregar dados, iniciando estrutura padrão.', e);
       }
-    }
-
-    try {
-      const response = await fetch('appData.json', { cache: 'no-store' });
-      if (response.ok) {
-        const defaultData = await response.json();
-        if (defaultData && typeof defaultData === 'object') {
-          appData = Object.assign(appData, defaultData);
-          salvarDados(); // grava no localStorage do usuário
-          console.log('Dados iniciais carregados de appData.json.');
-        }
-      } else {
-        console.warn('appData.json não encontrado ou inacessível. O sistema iniciará com estrutura vazia.');
-      }
-    } catch (e) {
-      console.error('Erro ao carregar appData.json. O sistema iniciará com estrutura vazia.', e);
     }
   }
 
@@ -909,45 +919,1701 @@
   }
 
   function gerarId() {
-    return 'ID' + Date.now().toString(36) + Math.random().toString(36).substring(2, 10);
+    return 'ID' + Date.now().toString(36) + Math.random().toString(36).substring(2, 7);
   }
 
+  // ==========================
+  // TROCA DE ABAS
+  // ==========================
+  const navButtons = document.querySelectorAll('nav button');
+  const tabs = document.querySelectorAll('.tab');
+
+  navButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      navButtons.forEach(b => b.classList.remove('active'));
+      tabs.forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      const tabId = btn.getAttribute('data-tab');
+      document.getElementById(tabId).classList.add('active');
+    });
+  });
+
+  // ==========================
+  // ADMIN: LOGIN, SENHA, VALIDAÇÃO
+  // ==========================
   let adminLogado = false;
 
-  // (DAQUI EM DIANTE permanecem todas as funções que já existiam: 
-  // loginAdmin, logoutAdmin, updateAdminEditingUI, adicionarGestor, 
-  // adicionarPerspectiva, adicionarObjetivo, adicionarIndicador, 
-  // salvarIndicadorGestor, todas as funções de METAS, relatórios etc.
-  // Não alterei essas partes.)
+  function updateAdminEditingUI() {
+    const msg = document.getElementById('admin-msg');
+    const btnValidar = document.getElementById('btn-validar-cadastro');
+    const btnAlterarSenha = document.getElementById('btn-alterar-senha');
+    const btnAddGestor = document.getElementById('btn-adicionar-gestor');
+    const btnAddPersp = document.getElementById('btn-adicionar-perspectiva');
+    const btnAddObj = document.getElementById('btn-adicionar-objetivo');
+    const btnAddIndicador = document.getElementById('btn-adicionar-indicador');
+    const adminProtected = document.getElementById('admin-protected');
+
+    const inputs = [
+      'admin-new-password',
+      'novo-gestor',
+      'nova-perspectiva',
+      'perspectiva-objetivo-select',
+      'gestor-objetivo-select',
+      'novo-objetivo',
+      'objetivo-indicador-select',
+      'novo-indicador-nome'
+    ];
+
+    if (adminLogado) {
+      msg.className = 'message success';
+      msg.textContent = 'Você está autenticado como ADMIN. Pode cadastrar, editar, excluir e liberar indicadores. Após concluir, clique em "Validar cadastro".';
+      if (adminProtected) adminProtected.style.display = 'block';
+      if (btnValidar) btnValidar.disabled = false;
+      if (btnAlterarSenha) btnAlterarSenha.disabled = false;
+      if (btnAddGestor) btnAddGestor.disabled = false;
+      if (btnAddPersp) btnAddPersp.disabled = false;
+      if (btnAddObj) btnAddObj.disabled = false;
+      if (btnAddIndicador) btnAddIndicador.disabled = false;
+      inputs.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.disabled = false;
+      });
+    } else {
+      msg.className = 'message info';
+      msg.textContent = 'Para editar, excluir ou liberar indicadores, é necessário estar autenticado como ADMIN. Sem login, os dados ficam apenas em modo leitura e o conteúdo de administração permanece oculto.';
+      if (adminProtected) adminProtected.style.display = 'none';
+      if (btnValidar) btnValidar.disabled = true;
+      if (btnAlterarSenha) btnAlterarSenha.disabled = true;
+      if (btnAddGestor) btnAddGestor.disabled = true;
+      if (btnAddPersp) btnAddPersp.disabled = true;
+      if (btnAddObj) btnAddObj.disabled = true;
+      if (btnAddIndicador) btnAddIndicador.disabled = true;
+      inputs.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.disabled = true;
+      });
+    }
+  }
+
+  function loginAdmin() {
+    const pwd = document.getElementById('admin-password').value;
+    const msgLogin = document.getElementById('admin-login-msg');
+    if (pwd === appData.adminPassword) {
+      adminLogado = true;
+      msgLogin.className = 'message success';
+      msgLogin.textContent = 'Login ADMIN bem-sucedido.';
+      updateAdminEditingUI();
+      renderTabelaAdminIndicadores();
+    } else {
+      adminLogado = false;
+      msgLogin.className = 'message error';
+      msgLogin.textContent = 'Senha incorreta.';
+      updateAdminEditingUI();
+    }
+  }
+
+  function validarCadastro() {
+    if (!adminLogado) {
+      alert('Para validar o cadastro é necessário estar autenticado como ADMIN.');
+      return;
+    }
+    adminLogado = false;
+    updateAdminEditingUI();
+    alert('Cadastro validado. A partir de agora, os dados permanecem visíveis somente na aba RESULTADOS, e a área de administração volta a ficar oculta até novo login do ADMIN.');
+  }
+
+  function alterarSenhaAdmin() {
+    if (!adminLogado) {
+      alert('Somente o ADMIN autenticado pode alterar a senha.');
+      return;
+    }
+    const newPwd = document.getElementById('admin-new-password').value;
+    if (!newPwd) {
+      alert('Informe uma nova senha.');
+      return;
+    }
+    appData.adminPassword = newPwd;
+    salvarDados();
+    alert('Senha do ADMIN alterada com sucesso.');
+    document.getElementById('admin-new-password').value = '';
+  }
 
   // ==========================
-  // INICIALIZAÇÃO
+  // ADMIN: GESTORES
   // ==========================
-  async function iniciarAplicativo() {
-    await carregarDados();
-    updateAdminEditingUI();
+  function adicionarGestor() {
+    if (!adminLogado) {
+      alert('Somente o ADMIN autenticado pode adicionar gestores.');
+      return;
+    }
+    const nome = document.getElementById('novo-gestor').value.trim();
+    if (!nome) {
+      alert('Informe o nome do Gestor Responsável.');
+      return;
+    }
+    const id = gerarId();
+    appData.managers.push({ id, nome });
+    salvarDados();
+    document.getElementById('novo-gestor').value = '';
     renderTabelaGestores();
     atualizarCombosGestores();
     atualizarGestorSelectGestorTab();
-    renderTabelaPerspectivas();
+  }
+
+  function removerGestor(id) {
+    if (!adminLogado) {
+      alert('Somente o ADMIN autenticado pode remover gestores.');
+      return;
+    }
+    const emUsoObjetivos = appData.objectives.some(o => o.gestorId === id);
+    const emUsoIndicadores = appData.indicators.some(i => i.gestorId === id);
+    if (emUsoObjetivos || emUsoIndicadores) {
+      alert('Não é possível remover o gestor, pois existem objetivos ou indicadores vinculados.');
+      return;
+    }
+    appData.managers = appData.managers.filter(g => g.id !== id);
+    salvarDados();
+    renderTabelaGestores();
+    atualizarCombosGestores();
+    atualizarGestorSelectGestorTab();
+  }
+
+  function renderTabelaGestores() {
+    const tbody = document.querySelector('#tabela-gestores tbody');
+    tbody.innerHTML = '';
+    appData.managers.forEach(g => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${g.nome}</td>
+        <td class="no-print">
+          <button class="btn-danger btn-small" onclick="removerGestor('${g.id}')">Excluir</button>
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function atualizarCombosGestores() {
+    const selGestorObj = document.getElementById('gestor-objetivo-select');
+    if (selGestorObj) {
+      const current = selGestorObj.value;
+      selGestorObj.innerHTML = '<option value="">Selecione...</option>';
+      appData.managers.forEach(g => {
+        const opt = document.createElement('option');
+        opt.value = g.id;
+        opt.textContent = g.nome;
+        selGestorObj.appendChild(opt);
+      });
+      selGestorObj.value = current;
+    }
+  }
+
+  function atualizarGestorSelectGestorTab() {
+    const selGestor = document.getElementById('gestor-select');
+    if (!selGestor) return;
+    const current = selGestor.value;
+    selGestor.innerHTML = '<option value="">Selecione...</option>';
+    appData.managers.forEach(g => {
+      const opt = document.createElement('option');
+      opt.value = g.id;
+      opt.textContent = g.nome;
+      selGestor.appendChild(opt);
+    });
+    selGestor.value = current;
+  }
+
+  function getGestorNomeById(id) {
+    const g = appData.managers.find(m => m.id === id);
+    return g ? g.nome : '';
+  }
+
+  // ==========================
+  // ADMIN: PERSPECTIVAS
+  // ==========================
+  function adicionarPerspectiva() {
+    if (!adminLogado) {
+      alert('Somente o ADMIN autenticado pode adicionar perspectivas.');
+      return;
+    }
+    const nome = document.getElementById('nova-perspectiva').value.trim();
+    if (!nome) {
+      alert('Informe o nome da Perspectiva.');
+      return;
+    }
+    const id = gerarId();
+    appData.perspectives.push({ id, nome });
+    salvarDados();
+    document.getElementById('nova-perspectiva').value = '';
     atualizarCombosPerspectivas();
+    renderTabelaPerspectivas();
+    atualizarCombosFiltrosResultados();
+  }
+
+  function removerPerspectiva(id) {
+    if (!adminLogado) {
+      alert('Somente o ADMIN autenticado pode remover perspectivas.');
+      return;
+    }
+    const emUsoObjetivos = appData.objectives.some(o => o.perspectivaId === id);
+    const emUsoIndicadores = appData.indicators.some(i => i.perspectivaId === id);
+    if (emUsoObjetivos || emUsoIndicadores) {
+      alert('Não é possível remover a Perspectiva, pois existem objetivos ou indicadores vinculados.');
+      return;
+    }
+    appData.perspectives = appData.perspectives.filter(p => p.id !== id);
+    salvarDados();
+    atualizarCombosPerspectivas();
+    renderTabelaPerspectivas();
+    atualizarCombosFiltrosResultados();
+  }
+
+  function renderTabelaPerspectivas() {
+    const tbody = document.querySelector('#tabela-perspectivas tbody');
+    tbody.innerHTML = '';
+    appData.perspectives.forEach(p => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${p.nome}</td>
+        <td class="no-print">
+          <button class="btn-danger btn-small" onclick="removerPerspectiva('${p.id}')">Excluir</button>
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  // ==========================
+  // ADMIN: OBJETIVOS
+  // ==========================
+  function adicionarObjetivo() {
+    if (!adminLogado) {
+      alert('Somente o ADMIN autenticado pode adicionar objetivos.');
+      return;
+    }
+    const perspectivaId = document.getElementById('perspectiva-objetivo-select').value;
+    const gestorId = document.getElementById('gestor-objetivo-select').value;
+    const nome = document.getElementById('novo-objetivo').value.trim();
+    if (!perspectivaId) {
+      alert('Selecione a Perspectiva para o Objetivo.');
+      return;
+    }
+    if (!gestorId) {
+      alert('Selecione o Gestor Responsável para o Objetivo.');
+      return;
+    }
+    if (!nome) {
+      alert('Informe o nome do Objetivo Estratégico.');
+      return;
+    }
+    const id = gerarId();
+    appData.objectives.push({ id, perspectivaId, nome, gestorId });
+    salvarDados();
+    document.getElementById('novo-objetivo').value = '';
     renderTabelaObjetivos();
     atualizarObjetivosSelectAdminIndicadores();
     atualizarCombosFiltrosResultados();
+  }
+
+  function removerObjetivo(id) {
+    if (!adminLogado) {
+      alert('Somente o ADMIN autenticado pode remover objetivos.');
+      return;
+    }
+    const emUso = appData.indicators.some(i => i.objetivoId === id);
+    if (emUso) {
+      alert('Não é possível remover o Objetivo, pois existem indicadores vinculados.');
+      return;
+    }
+    appData.objectives = appData.objectives.filter(o => o.id !== id);
+    salvarDados();
+    renderTabelaObjetivos();
+    atualizarObjetivosSelectAdminIndicadores();
+    atualizarCombosFiltrosResultados();
+  }
+
+  function renderTabelaObjetivos() {
+    const tbody = document.querySelector('#tabela-objetivos tbody');
+    tbody.innerHTML = '';
+    appData.objectives.forEach(o => {
+      const perspectiva = appData.perspectives.find(p => p.id === o.perspectivaId);
+      const nomePersp = perspectiva ? perspectiva.nome : '(sem perspectiva)';
+      const gestorNome = getGestorNomeById(o.gestorId);
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${nomePersp}</td>
+        <td>${o.nome}</td>
+        <td>${gestorNome}</td>
+        <td class="no-print">
+          <button class="btn-danger btn-small" onclick="removerObjetivo('${o.id}')">Excluir</button>
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  // ==========================
+  // ADMIN: INDICADORES (CADASTRO)
+  // ==========================
+  function atualizarObjetivosSelectAdminIndicadores() {
+    const sel = document.getElementById('objetivo-indicador-select');
+    if (!sel) return;
+    const current = sel.value;
+    sel.innerHTML = '<option value="">Selecione...</option>';
+
+    appData.objectives.forEach(o => {
+      const persp = appData.perspectives.find(p => p.id === o.perspectivaId);
+      const nomePersp = persp ? persp.nome : '';
+      const gestorNome = getGestorNomeById(o.gestorId);
+      const opt = document.createElement('option');
+      opt.value = o.id;
+      opt.textContent = `${o.nome} (${nomePersp} / ${gestorNome})`;
+      sel.appendChild(opt);
+    });
+
+    sel.value = current;
+    atualizarInfoObjetivoIndicador();
+  }
+
+  function atualizarInfoObjetivoIndicador() {
+    const sel = document.getElementById('objetivo-indicador-select');
+    const info = document.getElementById('info-objetivo-indicador');
+    if (!sel || !info) return;
+
+    const objetivoId = sel.value;
+    if (!objetivoId) {
+      info.value = '';
+      return;
+    }
+    const obj = appData.objectives.find(o => o.id === objetivoId);
+    if (!obj) {
+      info.value = '';
+      return;
+    }
+    const persp = appData.perspectives.find(p => p.id === obj.perspectivaId);
+    const nomePersp = persp ? persp.nome : '';
+    const gestorNome = getGestorNomeById(obj.gestorId);
+    info.value = `${nomePersp} / Gestor: ${gestorNome}`;
+  }
+
+  document.addEventListener('change', function (e) {
+    if (e.target && e.target.id === 'objetivo-indicador-select') {
+      atualizarInfoObjetivoIndicador();
+    }
+  });
+
+  function adicionarIndicadorAdmin() {
+    if (!adminLogado) {
+      alert('Somente o ADMIN autenticado pode adicionar indicadores.');
+      return;
+    }
+    const objetivoId = document.getElementById('objetivo-indicador-select').value;
+    const nomeIndicador = document.getElementById('novo-indicador-nome').value.trim();
+
+    if (!objetivoId) {
+      alert('Selecione o Objetivo Estratégico para o Indicador.');
+      return;
+    }
+    if (!nomeIndicador) {
+      alert('Informe o nome do Indicador.');
+      return;
+    }
+
+    const obj = appData.objectives.find(o => o.id === objetivoId);
+    if (!obj) {
+      alert('Objetivo não encontrado.');
+      return;
+    }
+    const perspectivaId = obj.perspectivaId;
+    const gestorId = obj.gestorId;
+
+    const id = gerarId();
+    appData.indicators.push({
+      id,
+      perspectivaId,
+      objetivoId,
+      gestorId,
+      indicador: nomeIndicador,
+      descricao: '',
+      formula: '',
+      unidade: '',
+      fonte: '',
+      periodicidade: '',
+      polaridade: '',
+      status: 'draft',
+      updatedAt: new Date().toISOString()
+    });
+
+    salvarDados();
+    document.getElementById('novo-indicador-nome').value = '';
+    renderTabelaAdminIndicadores();
+    renderTabelaGestorIndicadores();
+    renderTabelaResultados();
+  }
+
+  // ==========================
+  // GESTOR: FORM / LISTA
+  // ==========================
+  function atualizarCombosPerspectivas() {
+    // Perspectivas para cadastro de objetivos
+    const selAdminPerspObj = document.getElementById('perspectiva-objetivo-select');
+    if (selAdminPerspObj) {
+      const currentAdminValue = selAdminPerspObj.value;
+      selAdminPerspObj.innerHTML = '<option value="">Selecione...</option>';
+      appData.perspectives.forEach(p => {
+        const opt = document.createElement('option');
+        opt.value = p.id;
+        opt.textContent = p.nome;
+        selAdminPerspObj.appendChild(opt);
+      });
+      selAdminPerspObj.value = currentAdminValue;
+    }
+
+    // Filtro de resultados
+    const selFiltroPersp = document.getElementById('filtro-perspectiva');
+    if (selFiltroPersp) {
+      const currentFiltroPersp = selFiltroPersp.value;
+      selFiltroPersp.innerHTML = '<option value="">Todas</option>';
+      appData.perspectives.forEach(p => {
+        const opt = document.createElement('option');
+        opt.value = p.id;
+        opt.textContent = p.nome;
+        selFiltroPersp.appendChild(opt);
+      });
+      selFiltroPersp.value = currentFiltroPersp;
+    }
+  }
+
+  function limparFormulario() {
+    document.getElementById('indicador-id').value = '';
+    document.getElementById('perspectiva-nome').value = '';
+    document.getElementById('objetivo-nome').value = '';
+    document.getElementById('indicador-nome').value = '';
+    document.getElementById('descricao-operacional').value = '';
+    document.getElementById('formula').value = '';
+    document.getElementById('unidade-medida').value = '';
+    document.getElementById('fonte-dados').value = '';
+    document.getElementById('periodicidade').value = '';
+    document.getElementById('polaridade').value = '';
+    habilitarFormularioGestor(false);
+    document.getElementById('gestor-form-msg').className = 'message info no-print';
+    document.getElementById('gestor-form-msg').textContent =
+      'Selecione um indicador da lista acima. Use “Salvar rascunho” para salvamento parcial e “Salvar definitivo” para finalizar, em lote, os indicadores em rascunho do gestor.';
+  }
+
+  function habilitarFormularioGestor(habilitar) {
+    const campos = [
+      'descricao-operacional',
+      'formula',
+      'unidade-medida',
+      'fonte-dados',
+      'periodicidade',
+      'polaridade'
+    ];
+    campos.forEach(id => {
+      document.getElementById(id).disabled = !habilitar;
+    });
+    const btns = document.querySelectorAll('#form-indicador button');
+    btns.forEach(b => {
+      if (b.textContent.toUpperCase().includes('SALVAR')) {
+        b.disabled = !habilitar;
+      }
+    });
+  }
+
+  function onGestorSelecionado() {
+    renderTabelaGestorIndicadores();
+    limparFormulario();
+  }
+
+  function carregarIndicadorNoFormulario(id) {
+    const registro = appData.indicators.find(i => i.id === id);
+    if (!registro) return;
+
+    const gestorId = document.getElementById('gestor-select').value;
+    if (!gestorId || registro.gestorId !== gestorId) {
+      alert('Este indicador pertence a outro gestor. Para visualizá-lo em detalhes, utilize a aba RESULTADOS.');
+      return;
+    }
+
+    document.getElementById('indicador-id').value = registro.id;
+
+    const persp = appData.perspectives.find(p => p.id === registro.perspectivaId);
+    const obj = appData.objectives.find(o => o.id === registro.objetivoId);
+    document.getElementById('perspectiva-nome').value = persp ? persp.nome : '';
+    document.getElementById('objetivo-nome').value = obj ? obj.nome : '';
+    document.getElementById('indicador-nome').value = registro.indicador || '';
+
+    document.getElementById('descricao-operacional').value = registro.descricao || '';
+    document.getElementById('formula').value = registro.formula || '';
+    document.getElementById('unidade-medida').value = registro.unidade || '';
+    document.getElementById('fonte-dados').value = registro.fonte || '';
+    document.getElementById('periodicidade').value = registro.periodicidade || '';
+    document.getElementById('polaridade').value = registro.polaridade || '';
+
+    const msg = document.getElementById('gestor-form-msg');
+    if (registro.status === 'final') {
+      habilitarFormularioGestor(false);
+      msg.className = 'message error no-print';
+      msg.textContent = 'Indicador está salvo como definitivo. Edição bloqueada. Solicite ao ADMIN a liberação para nova edição.';
+    } else {
+      habilitarFormularioGestor(true);
+      msg.className = 'message info no-print';
+      msg.textContent = 'Indicador em modo de edição (rascunho).';
+    }
+  }
+
+  function salvarIndicador(status) {
+    const gestorId = document.getElementById('gestor-select').value;
+    if (!gestorId) {
+      alert('Selecione o Nome do Gestor Responsável antes de salvar.');
+      return;
+    }
+
+    const id = document.getElementById('indicador-id').value;
+    if (!id) {
+      alert('Selecione um indicador da lista para preencher os detalhes.');
+      return;
+    }
+
+    const indicador = appData.indicators.find(i => i.id === id);
+    if (!indicador) {
+      alert('Indicador não encontrado.');
+      return;
+    }
+
+    if (indicador.status === 'final' && status === 'draft') {
+      alert('Este indicador está salvo como definitivo. Peça ao ADMIN para liberar a edição.');
+      return;
+    }
+
+    const descricao = document.getElementById('descricao-operacional').value.trim();
+    const formula = document.getElementById('formula').value.trim();
+    const unidade = document.getElementById('unidade-medida').value;
+    const fonte = document.getElementById('fonte-dados').value.trim();
+    const periodicidade = document.getElementById('periodicidade').value;
+    const polaridade = document.getElementById('polaridade').value;
+
+    if (status === 'final') {
+      if (!descricao || !formula || !unidade || !fonte || !periodicidade || !polaridade) {
+        alert('Para salvar definitivo, todos os campos de detalhes devem estar preenchidos.');
+        return;
+      }
+    } else if (!descricao && !formula && !unidade && !fonte && !periodicidade && !polaridade) {
+      alert('Preencha pelo menos um campo de detalhe para salvar como rascunho.');
+      return;
+    }
+
+    indicador.descricao = descricao;
+    indicador.formula = formula;
+    indicador.unidade = unidade;
+    indicador.fonte = fonte;
+    indicador.periodicidade = periodicidade;
+    indicador.polaridade = polaridade;
+    indicador.status = (status === 'final') ? 'final' : 'draft';
+    indicador.updatedAt = new Date().toISOString();
+
+    let mantidosRascunho = 0;
+
+    if (status === 'final') {
+      let finalizadosLote = 0;
+      appData.indicators.forEach(i => {
+        if (i.gestorId === gestorId && i.status === 'draft') {
+          const completos = i.descricao && i.formula && i.unidade && i.fonte && i.periodicidade && i.polaridade;
+          if (completos) {
+            i.status = 'final';
+            finalizadosLote++;
+          } else {
+            mantidosRascunho++;
+          }
+        }
+      });
+      habilitarFormularioGestor(false);
+    }
+
+    salvarDados();
     renderTabelaGestorIndicadores();
     renderTabelaAdminIndicadores();
     renderTabelaResultados();
 
-    // METAS
-    atualizarGestorMetasSelect();
+    const msg = document.getElementById('gestor-form-msg');
+    if (status === 'final') {
+      msg.className = 'message success no-print';
+      msg.textContent =
+        `Indicador atual e demais indicadores completos em rascunho do gestor foram salvos como definitivos. ` +
+        (mantidosRascunho > 0
+          ? `(${mantidosRascunho} indicador(es) permaneceram como rascunho por falta de dados obrigatórios).`
+          : '');
+    } else {
+      msg.className = 'message success no-print';
+      msg.textContent = 'Indicador salvo como rascunho (salvamento parcial).';
+    }
+  }
+
+  function renderTabelaGestorIndicadores() {
+    const tbody = document.querySelector('#tabela-gestor-indicadores tbody');
+    tbody.innerHTML = '';
+    const gestorId = document.getElementById('gestor-select').value;
+    if (!gestorId) return;
+
+    appData.indicators
+      .filter(i => i.gestorId === gestorId)
+      .forEach(i => {
+        const persp = appData.perspectives.find(p => p.id === i.perspectivaId);
+        const obj = appData.objectives.find(o => o.id === i.objetivoId);
+        const nomePersp = persp ? persp.nome : '';
+        const nomeObj = obj ? obj.nome : '';
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${nomePersp}</td>
+          <td>${nomeObj}</td>
+          <td>${i.indicador || ''}</td>
+          <td class="${i.status === 'final' ? 'highlight-final' : ''}">
+            ${i.status === 'final' ? 'Definitivo' : 'Rascunho'}
+          </td>
+          <td class="no-print">
+            <button class="btn-primary btn-small" onclick="carregarIndicadorNoFormulario('${i.id}')">Preencher / Editar detalhes</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+    if (!document.getElementById('indicador-id').value) {
+      habilitarFormularioGestor(false);
+    }
+  }
+
+  // ==========================
+  // ADMIN: TABELA INDICADORES
+  // ==========================
+  function renderTabelaAdminIndicadores() {
+    const tbody = document.querySelector('#tabela-admin-indicadores tbody');
+    if (!tbody) return;
+    tbody.innerHTML = '';
+    appData.indicators.forEach(i => {
+      const persp = appData.perspectives.find(p => p.id === i.perspectivaId);
+      const obj = appData.objectives.find(o => o.id === i.objetivoId);
+      const nomePersp = persp ? persp.nome : '';
+      const nomeObj = obj ? obj.nome : '';
+      const gestorNome = getGestorNomeById(i.gestorId);
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${nomePersp}</td>
+        <td>${nomeObj}</td>
+        <td>${i.indicador}</td>
+        <td>${gestorNome}</td>
+        <td class="${i.status === 'final' ? 'highlight-final' : ''}">
+          ${i.status === 'final' ? 'Definitivo' : 'Rascunho'}
+        </td>
+        <td class="no-print">
+          <button class="btn-secondary btn-small" onclick="editarIndicadorAdmin('${i.id}')">Editar</button>
+          <button class="btn-danger btn-small" onclick="excluirIndicadorAdmin('${i.id}')">Excluir</button>
+          ${
+            i.status === 'final'
+              ? `<button class="btn-warning btn-small" onclick="liberarEdicaoIndicador('${i.id}')">Liberar edição</button>`
+              : ''
+          }
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function liberarEdicaoIndicador(id) {
+    if (!adminLogado) {
+      alert('Somente o ADMIN autenticado pode liberar edição.');
+      return;
+    }
+    const indicador = appData.indicators.find(i => i.id === id);
+    if (!indicador) return;
+    indicador.status = 'draft';
+    salvarDados();
+    renderTabelaAdminIndicadores();
+    renderTabelaGestorIndicadores();
+    renderTabelaResultados();
+    alert('Indicador liberado para edição (status: rascunho).');
+  }
+
+  function editarIndicadorAdmin(id) {
+    if (!adminLogado) {
+      alert('Somente o ADMIN autenticado pode editar indicadores.');
+      return;
+    }
+    const indicador = appData.indicators.find(i => i.id === id);
+    if (!indicador) return;
+
+    const novoNome = prompt('Informe o novo nome para o indicador:', indicador.indicador || '');
+    if (novoNome === null) {
+      return;
+    }
+    const nomeTrim = novoNome.trim();
+    if (!nomeTrim) {
+      alert('O nome do indicador não pode ser vazio.');
+      return;
+    }
+
+    indicador.indicador = nomeTrim;
+    indicador.updatedAt = new Date().toISOString();
+    salvarDados();
+    renderTabelaAdminIndicadores();
+    renderTabelaGestorIndicadores();
+    renderTabelaResultados();
+    alert('Nome do indicador atualizado com sucesso.');
+  }
+
+  function excluirIndicadorAdmin(id) {
+    if (!adminLogado) {
+      alert('Somente o ADMIN autenticado pode excluir indicadores.');
+      return;
+    }
+    const indicador = appData.indicators.find(i => i.id === id);
+    if (!indicador) return;
+
+    const persp = appData.perspectives.find(p => p.id === indicador.perspectivaId);
+    const obj = appData.objectives.find(o => o.id === indicador.objetivoId);
+    const nomePersp = persp ? persp.nome : '';
+    const nomeObj = obj ? obj.nome : '';
+    const gestorNome = getGestorNomeById(indicador.gestorId);
+
+    const msgConfirm = `Confirma a exclusão definitiva do indicador:\n\n` +
+      `Indicador: ${indicador.indicador}\n` +
+      `Objetivo: ${nomeObj}\n` +
+      `Perspectiva: ${nomePersp}\n` +
+      `Gestor: ${gestorNome}\n\n` +
+      `Esta ação não poderá ser desfeita.`;
+
+    if (!confirm(msgConfirm)) {
+      return;
+    }
+
+    appData.indicators = appData.indicators.filter(i => i.id !== id);
+    salvarDados();
+    renderTabelaAdminIndicadores();
+    renderTabelaGestorIndicadores();
+    renderTabelaResultados();
+    alert('Indicador excluído com sucesso.');
+  }
+
+  // ==========================
+  // RESULTADOS: TABELA, FILTROS, EXPORTAÇÃO
+  // ==========================
+  function atualizarCombosFiltrosResultados() {
+    const selObj = document.getElementById('filtro-objetivo');
+    if (!selObj) return;
+
+    const currentObj = selObj.value;
+    selObj.innerHTML = '<option value="">Todos</option>';
+    appData.objectives.forEach(o => {
+      const perspectiva = appData.perspectives.find(p => p.id === o.perspectivaId);
+      const nomePersp = perspectiva ? perspectiva.nome : '';
+      const opt = document.createElement('option');
+      opt.value = o.id;
+      opt.textContent = `${o.nome} (${nomePersp})`;
+      selObj.appendChild(opt);
+    });
+    selObj.value = currentObj;
+  }
+
+  function renderTabelaResultados() {
+    const tbody = document.querySelector('#tabela-resultados tbody');
+    tbody.innerHTML = '';
+    const filtroPersp = document.getElementById('filtro-perspectiva').value;
+    const filtroObj = document.getElementById('filtro-objetivo').value;
+
+    appData.indicators
+      .filter(i => (!filtroPersp || i.perspectivaId === filtroPersp))
+      .filter(i => (!filtroObj || i.objetivoId === filtroObj))
+      .forEach(i => {
+        const persp = appData.perspectives.find(p => p.id === i.perspectivaId);
+        const obj = appData.objectives.find(o => o.id === i.objetivoId);
+        const nomePersp = persp ? persp.nome : '';
+        const nomeObj = obj ? obj.nome : '';
+        const gestorNome = getGestorNomeById(i.gestorId);
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${nomePersp}</td>
+          <td>${nomeObj}</td>
+          <td>${i.indicador || ''}</td>
+          <td>${i.descricao || ''}</td>
+          <td>${i.formula || ''}</td>
+          <td>${i.unidade || ''}</td>
+          <td>${i.fonte || ''}</td>
+          <td>${i.periodicidade || ''}</td>
+          <td>${i.polaridade || ''}</td>
+          <td>${gestorNome}</td>
+          <td>${i.status === 'final' ? 'Definitivo' : 'Rascunho'}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+  }
+
+  function exportarCSV() {
+    const rows = [];
+    const header = [
+      'Perspectiva',
+      'Objetivo Estratégico',
+      'Indicador',
+      'Descrição operacional',
+      'Fórmula',
+      'Unidade',
+      'Fonte de dados',
+      'Periodicidade',
+      'Polaridade',
+      'Gestor',
+      'Status'
+    ];
+    rows.push(header);
+
+    const filtroPersp = document.getElementById('filtro-perspectiva').value;
+    const filtroObj = document.getElementById('filtro-objetivo').value;
+
+    appData.indicators
+      .filter(i => (!filtroPersp || i.perspectivaId === filtroPersp))
+      .filter(i => (!filtroObj || i.objetivoId === filtroObj))
+      .forEach(i => {
+        const persp = appData.perspectives.find(p => p.id === i.perspectivaId);
+        const obj = appData.objectives.find(o => o.id === i.objetivoId);
+        const nomePersp = persp ? persp.nome : '';
+        const nomeObj = obj ? obj.nome : '';
+        const gestorNome = getGestorNomeById(i.gestorId);
+        rows.push([
+          nomePersp,
+          nomeObj,
+          i.indicador || '',
+          i.descricao || '',
+          i.formula || '',
+          i.unidade || '',
+          i.fonte || '',
+          i.periodicidade || '',
+          i.polaridade || '',
+          gestorNome,
+          i.status === 'final' ? 'Definitivo' : 'Rascunho'
+        ]);
+      });
+
+    const csvBody = rows.map(r =>
+      r.map(field => {
+        const val = (field || '').toString().replace(/"/g, '""');
+        return `"${val}"`;
+      }).join(';')
+    ).join('\r\n');
+
+    const csvContent = '\uFEFF' + csvBody;
+
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'fichas_indicadores.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+  // ==========================
+  // METAS DOS INDICADORES
+  // ==========================
+
+  function getMetaByIndicadorId(indicadorId) {
+    return appData.metas.find(m => m.indicadorId === indicadorId) || null;
+  }
+
+  function atualizarGestorMetasSelect() {
+    const sel = document.getElementById('gestor-metas-select');
+    if (!sel) return;
+    const current = sel.value;
+    sel.innerHTML = '<option value="">Selecione...</option>';
+    appData.managers.forEach(g => {
+      const opt = document.createElement('option');
+      opt.value = g.id;
+      opt.textContent = g.nome;
+      sel.appendChild(opt);
+    });
+    sel.value = current;
+  }
+
+  function onGestorMetasSelecionado() {
+    renderTabelaMetasIndicadores();
+    limparFormularioMetas();
+  }
+
+  function renderTabelaMetasIndicadores() {
+    const tbody = document.querySelector('#tabela-metas-indicadores tbody');
+    if (!tbody) return;
+    tbody.innerHTML = '';
+    const gestorId = document.getElementById('gestor-metas-select').value;
+    if (!gestorId) return;
+
+    appData.indicators
+      .filter(i => i.gestorId === gestorId)
+      .forEach(i => {
+        const persp = appData.perspectives.find(p => p.id === i.perspectivaId);
+        const obj = appData.objectives.find(o => o.id === i.objetivoId);
+        const nomePersp = persp ? persp.nome : '';
+        const nomeObj = obj ? obj.nome : '';
+        const meta = getMetaByIndicadorId(i.id);
+        const statusMeta = meta ? (meta.status === 'final' ? 'Definitiva' : 'Rascunho') : 'Não cadastrada';
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${nomePersp}</td>
+          <td>${nomeObj}</td>
+          <td>${i.indicador || ''}</td>
+          <td>${statusMeta}</td>
+          <td class="no-print">
+            <button class="btn-primary btn-small" onclick="carregarMetaParaIndicador('${i.id}')">
+              Cadastrar / Editar metas
+            </button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+  }
+
+  function habilitarFormularioMetas(habilitar) {
+    const campos = [
+      'meta-ano',
+      'meta-jan', 'meta-fev', 'meta-mar', 'meta-abr', 'meta-mai', 'meta-jun',
+      'meta-jul', 'meta-ago', 'meta-set', 'meta-out', 'meta-nov', 'meta-dez',
+      'meta-tipo-calculo',
+      'meta-azul-de', 'meta-azul-ate',
+      'meta-verde-de', 'meta-verde-ate',
+      'meta-amarelo-de', 'meta-amarelo-ate',
+      'meta-vermelho-abaixo',
+      'meta-ref1', 'meta-ref2', 'meta-ref3'
+    ];
+    campos.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.disabled = !habilitar;
+    });
+    const btns = document.querySelectorAll('#form-metas button');
+    btns.forEach(b => {
+      if (b.textContent.toUpperCase().includes('SALVAR')) {
+        b.disabled = !habilitar;
+      }
+    });
+  }
+
+  function limparFormularioMetas() {
+    document.getElementById('meta-id').value = '';
+    document.getElementById('meta-indicador-id').value = '';
+    document.getElementById('meta-perspectiva-nome').value = '';
+    document.getElementById('meta-objetivo-nome').value = '';
+    document.getElementById('meta-indicador-nome').value = '';
+    document.getElementById('meta-unidade').value = '';
+    document.getElementById('meta-unidade-label').textContent = '';
+
+    const campos = [
+      'meta-ano',
+      'meta-jan', 'meta-fev', 'meta-mar', 'meta-abr', 'meta-mai', 'meta-jun',
+      'meta-jul', 'meta-ago', 'meta-set', 'meta-out', 'meta-nov', 'meta-dez',
+      'meta-tipo-calculo',
+      'meta-azul-de', 'meta-azul-ate',
+      'meta-verde-de', 'meta-verde-ate',
+      'meta-amarelo-de', 'meta-amarelo-ate',
+      'meta-vermelho-abaixo',
+      'meta-ref1', 'meta-ref2', 'meta-ref3'
+    ];
+    campos.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.value = '';
+    });
+
+    document.getElementById('meta-ref-ano1').textContent = '';
+    document.getElementById('meta-ref-ano2').textContent = '';
+    document.getElementById('meta-ref-ano3').textContent = '';
+
+    habilitarFormularioMetas(false);
+
+    const msg = document.getElementById('metas-form-msg');
+    if (msg) {
+      msg.className = 'message info no-print';
+      msg.textContent = 'Selecione um indicador da lista para cadastrar ou editar as metas anuais.';
+    }
+  }
+
+  function carregarMetaParaIndicador(indicadorId) {
+    const gestorId = document.getElementById('gestor-metas-select').value;
+    if (!gestorId) {
+      alert('Selecione o Nome do Gestor Responsável antes de cadastrar metas.');
+      return;
+    }
+
+    const indicador = appData.indicators.find(i => i.id === indicadorId);
+    if (!indicador) {
+      alert('Indicador não encontrado.');
+      return;
+    }
+
+    if (indicador.gestorId !== gestorId) {
+      alert('Este indicador pertence a outro gestor. As metas só podem ser mantidas pelo gestor responsável.');
+      return;
+    }
+
+    const persp = appData.perspectives.find(p => p.id === indicador.perspectivaId);
+    const obj = appData.objectives.find(o => o.id === indicador.objetivoId);
+
+    document.getElementById('meta-indicador-id').value = indicador.id;
+    document.getElementById('meta-perspectiva-nome').value = persp ? persp.nome : '';
+    document.getElementById('meta-objetivo-nome').value = obj ? obj.nome : '';
+    document.getElementById('meta-indicador-nome').value = indicador.indicador || '';
+    document.getElementById('meta-unidade').value = indicador.unidade || '';
+    document.getElementById('meta-unidade-label').textContent = indicador.unidade || '';
+
+    const meta = getMetaByIndicadorId(indicador.id);
+
+    if (!meta) {
+      document.getElementById('meta-id').value = '';
+      document.getElementById('meta-ano').value = '';
+      document.getElementById('meta-ref-ano1').textContent = '';
+      document.getElementById('meta-ref-ano2').textContent = '';
+      document.getElementById('meta-ref-ano3').textContent = '';
+      const camposMes = [
+        'meta-jan', 'meta-fev', 'meta-mar', 'meta-abr', 'meta-mai', 'meta-jun',
+        'meta-jul', 'meta-ago', 'meta-set', 'meta-out', 'meta-nov', 'meta-dez'
+      ];
+      camposMes.forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+      document.getElementById('meta-tipo-calculo').value = '';
+      ['meta-azul-de','meta-azul-ate','meta-verde-de','meta-verde-ate','meta-amarelo-de','meta-amarelo-ate','meta-vermelho-abaixo'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.value = '';
+      });
+      ['meta-ref1','meta-ref2','meta-ref3'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.value = '';
+      });
+
+      habilitarFormularioMetas(true);
+      const msg = document.getElementById('metas-form-msg');
+      if (msg) {
+        msg.className = 'message info no-print';
+        msg.textContent = 'Preencha as informações e utilize "Salvar rascunho" ou "Salvar definitivo" para registrar as metas.';
+      }
+      return;
+    }
+
+    document.getElementById('meta-id').value = meta.id;
+    document.getElementById('meta-ano').value = meta.ano || '';
+    atualizarAnosReferenciaMetas();
+
+    document.getElementById('meta-jan').value = meta.metas?.jan || '';
+    document.getElementById('meta-fev').value = meta.metas?.fev || '';
+    document.getElementById('meta-mar').value = meta.metas?.mar || '';
+    document.getElementById('meta-abr').value = meta.metas?.abr || '';
+    document.getElementById('meta-mai').value = meta.metas?.mai || '';
+    document.getElementById('meta-jun').value = meta.metas?.jun || '';
+    document.getElementById('meta-jul').value = meta.metas?.jul || '';
+    document.getElementById('meta-ago').value = meta.metas?.ago || '';
+    document.getElementById('meta-set').value = meta.metas?.set || '';
+    document.getElementById('meta-out').value = meta.metas?.out || '';
+    document.getElementById('meta-nov').value = meta.metas?.nov || '';
+    document.getElementById('meta-dez').value = meta.metas?.dez || '';
+
+    document.getElementById('meta-tipo-calculo').value = meta.tipoCalculo || '';
+
+    document.getElementById('meta-azul-de').value = meta.faixas?.azulDe ?? '';
+    document.getElementById('meta-azul-ate').value = meta.faixas?.azulAte ?? '';
+    document.getElementById('meta-verde-de').value = meta.faixas?.verdeDe ?? '';
+    document.getElementById('meta-verde-ate').value = meta.faixas?.verdeAte ?? '';
+    document.getElementById('meta-amarelo-de').value = meta.faixas?.amareloDe ?? '';
+    document.getElementById('meta-amarelo-ate').value = meta.faixas?.amareloAte ?? '';
+    document.getElementById('meta-vermelho-abaixo').value = meta.faixas?.vermelhoAbaixoDe ?? '';
+
+    document.getElementById('meta-ref1').value = meta.ref1 || '';
+    document.getElementById('meta-ref2').value = meta.ref2 || '';
+    document.getElementById('meta-ref3').value = meta.ref3 || '';
+
+    const msg = document.getElementById('metas-form-msg');
+    if (meta.status === 'final') {
+      habilitarFormularioMetas(false);
+      if (msg) {
+        msg.className = 'message error no-print';
+        msg.textContent = 'Metas salvas como definitivas. Edição bloqueada. Solicite ao ADMIN a liberação para nova edição ou exclusão.';
+      }
+    } else {
+      habilitarFormularioMetas(true);
+      if (msg) {
+        msg.className = 'message info no-print';
+        msg.textContent = 'Metas em modo de edição (rascunho).';
+      }
+    }
+  }
+
+  function atualizarAnosReferenciaMetas() {
+    const anoStr = document.getElementById('meta-ano').value;
+    const ano = parseInt(anoStr, 10);
+    const span1 = document.getElementById('meta-ref-ano1');
+    const span2 = document.getElementById('meta-ref-ano2');
+    const span3 = document.getElementById('meta-ref-ano3');
+    if (!span1 || !span2 || !span3) return;
+
+    if (isNaN(ano)) {
+      span1.textContent = '';
+      span2.textContent = '';
+      span3.textContent = '';
+      return;
+    }
+    span1.textContent = (ano - 1).toString();
+    span2.textContent = (ano - 2).toString();
+    span3.textContent = (ano - 3).toString();
+  }
+
+  function salvarMeta(modo) {
+    const gestorId = document.getElementById('gestor-metas-select').value;
+    if (!gestorId) {
+      alert('Selecione o Nome do Gestor Responsável antes de salvar metas.');
+      return;
+    }
+
+    const indicadorId = document.getElementById('meta-indicador-id').value;
+    if (!indicadorId) {
+      alert('Selecione um indicador na tabela para cadastrar ou editar metas.');
+      return;
+    }
+
+    const indicador = appData.indicators.find(i => i.id === indicadorId);
+    if (!indicador) {
+      alert('Indicador não encontrado.');
+      return;
+    }
+
+    const metaExistente = getMetaByIndicadorId(indicadorId);
+    if (metaExistente && metaExistente.status === 'final' && modo === 'draft') {
+      alert('As metas deste indicador estão salvas como definitivas. Peça ao ADMIN para liberar a edição.');
+      return;
+    }
+
+    const anoStr = document.getElementById('meta-ano').value.trim();
+    const tipoCalculo = document.getElementById('meta-tipo-calculo').value;
+    const camposMesIds = [
+      'meta-jan', 'meta-fev', 'meta-mar', 'meta-abr', 'meta-mai', 'meta-jun',
+      'meta-jul', 'meta-ago', 'meta-set', 'meta-out', 'meta-nov', 'meta-dez'
+    ];
+    const metasMensais = {};
+    camposMesIds.forEach(id => {
+      const el = document.getElementById(id);
+      metasMensais[id.replace('meta-','')] = el ? el.value.trim() : '';
+    });
+
+    const azulDeStr = document.getElementById('meta-azul-de').value.trim();
+    const azulAteStr = document.getElementById('meta-azul-ate').value.trim();
+    const verdeDeStr = document.getElementById('meta-verde-de').value.trim();
+    const verdeAteStr = document.getElementById('meta-verde-ate').value.trim();
+    const amareloDeStr = document.getElementById('meta-amarelo-de').value.trim();
+    const amareloAteStr = document.getElementById('meta-amarelo-ate').value.trim();
+    const vermelhoAbaixoStr = document.getElementById('meta-vermelho-abaixo').value.trim();
+
+    const ref1 = document.getElementById('meta-ref1').value.trim();
+    const ref2 = document.getElementById('meta-ref2').value.trim();
+    const ref3 = document.getElementById('meta-ref3').value.trim();
+
+    if (modo === 'final') {
+      if (!anoStr) {
+        alert('Informe o ano de monitoramento (ano das metas).');
+        return;
+      }
+      const ano = parseInt(anoStr, 10);
+      if (isNaN(ano) || ano < 1900 || ano > 9999) {
+        alert('Informe um ano de monitoramento válido.');
+        return;
+      }
+
+      const algumMesVazio = camposMesIds.some(id => {
+        const el = document.getElementById(id);
+        return !el || !el.value.trim();
+      });
+      if (algumMesVazio) {
+        alert('Para salvar definitivo, todas as metas mensais (jan/dez) devem estar preenchidas.');
+        return;
+      }
+
+      if (!tipoCalculo) {
+        alert('Selecione o tipo de cálculo do indicador.');
+        return;
+      }
+
+      if (!azulDeStr || !azulAteStr || !verdeDeStr || !verdeAteStr || !amareloDeStr || !amareloAteStr || !vermelhoAbaixoStr) {
+        alert('Preencha todas as faixas de gestão à vista para salvar definitivo.');
+        return;
+      }
+
+      const azulDe = parseFloat(azulDeStr.replace(',', '.'));
+      const azulAte = parseFloat(azulAteStr.replace(',', '.'));
+      const verdeDe = parseFloat(verdeDeStr.replace(',', '.'));
+      const verdeAte = parseFloat(verdeAteStr.replace(',', '.'));
+      const amareloDe = parseFloat(amareloDeStr.replace(',', '.'));
+      const amareloAte = parseFloat(amareloAteStr.replace(',', '.'));
+      const vermelhoAbaixo = parseFloat(vermelhoAbaixoStr.replace(',', '.'));
+
+      if ([azulDe, azulAte, verdeDe, verdeAte, amareloDe, amareloAte, vermelhoAbaixo].some(v => isNaN(v))) {
+        alert('As faixas de gestão à vista devem ser valores numéricos (em % de atingimento da meta).');
+        return;
+      }
+
+      if (!(vermelhoAbaixo < azulDe &&
+            azulDe <= azulAte &&
+            azulAte < verdeDe &&
+            verdeDe <= verdeAte &&
+            verdeAte < amareloDe &&
+            amareloDe <= amareloAte)) {
+        alert('As faixas de gestão à vista devem ser crescentes e sem superposição: Vermelho < Azul <= AzulMáx < VerdeMin <= VerdeMáx < AmareloMin <= AmareloMáx.');
+        return;
+      }
+    } else {
+      const algumCampoPreenchido =
+        anoStr ||
+        tipoCalculo ||
+        Object.values(metasMensais).some(v => v) ||
+        azulDeStr || azulAteStr || verdeDeStr || verdeAteStr ||
+        amareloDeStr || amareloAteStr || vermelhoAbaixoStr ||
+        ref1 || ref2 || ref3;
+      if (!algumCampoPreenchido) {
+        alert('Preencha ao menos um campo para salvar rascunho de metas.');
+        return;
+      }
+    }
+
+    let meta = metaExistente;
+    if (!meta) {
+      meta = {
+        id: gerarId(),
+        indicadorId,
+        ano: anoStr ? parseInt(anoStr, 10) : null,
+        tipoCalculo: tipoCalculo || '',
+        metas: {},
+        faixas: {},
+        ref1: ref1 || '',
+        ref2: ref2 || '',
+        ref3: ref3 || '',
+        status: 'draft',
+        updatedAt: new Date().toISOString()
+      };
+      appData.metas.push(meta);
+    }
+
+    meta.ano = anoStr ? parseInt(anoStr, 10) : null;
+    meta.tipoCalculo = tipoCalculo || '';
+    meta.metas = {
+      jan: metasMensais.jan || '',
+      fev: metasMensais.fev || '',
+      mar: metasMensais.mar || '',
+      abr: metasMensais.abr || '',
+      mai: metasMensais.mai || '',
+      jun: metasMensais.jun || '',
+      jul: metasMensais.jul || '',
+      ago: metasMensais.ago || '',
+      set: metasMensais.set || '',
+      out: metasMensais.out || '',
+      nov: metasMensais.nov || '',
+      dez: metasMensais.dez || ''
+    };
+    meta.faixas = {
+      azulDe: azulDeStr || '',
+      azulAte: azulAteStr || '',
+      verdeDe: verdeDeStr || '',
+      verdeAte: verdeAteStr || '',
+      amareloDe: amareloDeStr || '',
+      amareloAte: amareloAteStr || '',
+      vermelhoAbaixoDe: vermelhoAbaixoStr || ''
+    };
+    meta.ref1 = ref1 || '';
+    meta.ref2 = ref2 || '';
+    meta.ref3 = ref3 || '';
+    meta.status = (modo === 'final') ? 'final' : 'draft';
+    meta.updatedAt = new Date().toISOString();
+
+    salvarDados();
     renderTabelaMetasIndicadores();
     renderTabelaAdminMetas();
     atualizarCombosFiltrosMetas();
     renderTabelaRelatorioMetas();
+
+    const msg = document.getElementById('metas-form-msg');
+    if (modo === 'final') {
+      habilitarFormularioMetas(false);
+      if (msg) {
+        msg.className = 'message success no-print';
+        msg.textContent = 'Metas salvas como definitivas. Para nova edição ou exclusão, somente com liberação do ADMIN.';
+      }
+    } else {
+      if (msg) {
+        msg.className = 'message success no-print';
+        msg.textContent = 'Metas salvas como rascunho.';
+      }
+    }
   }
 
-  iniciarAplicativo();
+  // ==========================
+  // METAS: ADMIN
+  // ==========================
+  function renderTabelaAdminMetas() {
+    const tbody = document.querySelector('#tabela-admin-metas tbody');
+    if (!tbody) return;
+    tbody.innerHTML = '';
+
+    appData.metas.forEach(m => {
+      const indicador = appData.indicators.find(i => i.id === m.indicadorId);
+      if (!indicador) return;
+      const persp = appData.perspectives.find(p => p.id === indicador.perspectivaId);
+      const obj = appData.objectives.find(o => o.id === indicador.objetivoId);
+      const nomePersp = persp ? persp.nome : '';
+      const nomeObj = obj ? obj.nome : '';
+      const gestorNome = getGestorNomeById(indicador.gestorId);
+
+      let tipoLabel = '';
+      if (m.tipoCalculo === 'mensal') tipoLabel = 'Mensal (mês isolado)';
+      else if (m.tipoCalculo === 'acum_soma') tipoLabel = 'Acumulado (YTD - soma)';
+      else if (m.tipoCalculo === 'acum_media') tipoLabel = 'Acumulado (YTD - média)';
+
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${nomePersp}</td>
+        <td>${nomeObj}</td>
+        <td>${indicador.indicador || ''}</td>
+        <td>${gestorNome}</td>
+        <td>${m.ano || ''}</td>
+        <td>${tipoLabel}</td>
+        <td class="${m.status === 'final' ? 'highlight-final' : ''}">${m.status === 'final' ? 'Definitiva' : 'Rascunho'}</td>
+        <td class="no-print">
+          <button class="btn-danger btn-small" onclick="excluirMetaAdmin('${m.id}')">Excluir meta</button>
+          ${m.status === 'final'
+            ? `<button class="btn-warning btn-small" onclick="liberarEdicaoMeta('${m.id}')">Liberar edição</button>`
+            : ''
+          }
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function liberarEdicaoMeta(id) {
+    if (!adminLogado) {
+      alert('Somente o ADMIN autenticado pode liberar edição de metas.');
+      return;
+    }
+    const meta = appData.metas.find(m => m.id === id);
+    if (!meta) return;
+    meta.status = 'draft';
+    meta.updatedAt = new Date().toISOString();
+    salvarDados();
+    renderTabelaAdminMetas();
+    renderTabelaMetasIndicadores();
+    renderTabelaRelatorioMetas();
+    alert('Meta liberada para edição (status: rascunho).');
+  }
+
+  function excluirMetaAdmin(id) {
+    if (!adminLogado) {
+      alert('Somente o ADMIN autenticado pode excluir metas.');
+      return;
+    }
+    const meta = appData.metas.find(m => m.id === id);
+    if (!meta) return;
+
+    const indicador = appData.indicators.find(i => i.id === meta.indicadorId);
+    const persp = indicador ? appData.perspectives.find(p => p.id === indicador.perspectivaId) : null;
+    const obj = indicador ? appData.objectives.find(o => o.id === indicador.objetivoId) : null;
+    const gestorNome = indicador ? getGestorNomeById(indicador.gestorId) : '';
+
+    const nomeIndicador = indicador ? (indicador.indicador || '') : '';
+    const nomePersp = persp ? persp.nome : '';
+    const nomeObj = obj ? obj.nome : '';
+
+    const msgConfirm = `Confirma a exclusão definitiva das metas do indicador:\n\n` +
+      `Indicador: ${nomeIndicador}\n` +
+      `Objetivo: ${nomeObj}\n` +
+      `Perspectiva: ${nomePersp}\n` +
+      `Gestor: ${gestorNome}\n\n` +
+      `Esta ação não poderá ser desfeita.`;
+
+    if (!confirm(msgConfirm)) {
+      return;
+    }
+
+    appData.metas = appData.metas.filter(m => m.id !== id);
+    salvarDados();
+    renderTabelaAdminMetas();
+    renderTabelaMetasIndicadores();
+    renderTabelaRelatorioMetas();
+    alert('Metas excluídas com sucesso.');
+  }
+
+  // ==========================
+  // METAS: RELATÓRIO E EXPORTAÇÃO
+  // ==========================
+  function atualizarCombosFiltrosMetas() {
+    const selPersp = document.getElementById('filtro-metas-perspectiva');
+    const selObj = document.getElementById('filtro-metas-objetivo');
+    const selInd = document.getElementById('filtro-metas-indicador');
+
+    if (selPersp) {
+      const currentPersp = selPersp.value;
+      selPersp.innerHTML = '<option value="">Todas</option>';
+      appData.perspectives.forEach(p => {
+        const opt = document.createElement('option');
+        opt.value = p.id;
+        opt.textContent = p.nome;
+        selPersp.appendChild(opt);
+      });
+      selPersp.value = currentPersp;
+    }
+
+    if (selObj) {
+      const currentObj = selObj.value;
+      selObj.innerHTML = '<option value="">Todos</option>';
+      appData.objectives.forEach(o => {
+        const persp = appData.perspectives.find(p => p.id === o.perspectivaId);
+        const nomePersp = persp ? persp.nome : '';
+        const opt = document.createElement('option');
+        opt.value = o.id;
+        opt.textContent = `${o.nome} (${nomePersp})`;
+        selObj.appendChild(opt);
+      });
+      selObj.value = currentObj;
+    }
+
+    if (selInd) {
+      const currentInd = selInd.value;
+      selInd.innerHTML = '<option value="">Todos</option>';
+      appData.indicators.forEach(i => {
+        const obj = appData.objectives.find(o => o.id === i.objetivoId);
+        const persp = appData.perspectives.find(p => p.id === i.perspectivaId);
+        const nomeObj = obj ? obj.nome : '';
+        const nomePersp = persp ? persp.nome : '';
+        const opt = document.createElement('option');
+        opt.value = i.id;
+        opt.textContent = `${i.indicador || ''} (${nomeObj} / ${nomePersp})`;
+        selInd.appendChild(opt);
+      });
+      selInd.value = currentInd;
+    }
+  }
+
+  function renderTabelaRelatorioMetas() {
+    const tbody = document.querySelector('#tabela-relatorio-metas tbody');
+    if (!tbody) return;
+    tbody.innerHTML = '';
+
+    const filtroPersp = document.getElementById('filtro-metas-perspectiva')?.value || '';
+    const filtroObj = document.getElementById('filtro-metas-objetivo')?.value || '';
+    const filtroInd = document.getElementById('filtro-metas-indicador')?.value || '';
+
+    appData.metas.forEach(m => {
+      const indicador = appData.indicators.find(i => i.id === m.indicadorId);
+      if (!indicador) return;
+      const obj = appData.objectives.find(o => o.id === indicador.objetivoId);
+      const persp = appData.perspectives.find(p => p.id === indicador.perspectivaId);
+      const nomePersp = persp ? persp.nome : '';
+      const nomeObj = obj ? obj.nome : '';
+      const gestorNome = getGestorNomeById(indicador.gestorId);
+
+      if (filtroPersp && indicador.perspectivaId !== filtroPersp) return;
+      if (filtroObj && indicador.objetivoId !== filtroObj) return;
+      if (filtroInd && indicador.id !== filtroInd) return;
+
+      let tipoLabel = '';
+      if (m.tipoCalculo === 'mensal') tipoLabel = 'Mensal (mês isolado)';
+      else if (m.tipoCalculo === 'acum_soma') tipoLabel = 'Acumulado (YTD - soma)';
+      else if (m.tipoCalculo === 'acum_media') tipoLabel = 'Acumulado (YTD - média)';
+
+      const faixasTexto = m.faixas
+        ? `Azul: de ${m.faixas.azulDe} a ${m.faixas.azulAte} | ` +
+          `Verde: de ${m.faixas.verdeDe} a ${m.faixas.verdeAte} | ` +
+          `Amarelo: de ${m.faixas.amareloDe} a ${m.faixas.amareloAte} | ` +
+          `Vermelho: abaixo de ${m.faixas.vermelhoAbaixoDe}`
+        : '';
+
+      const referenciasTexto = (m.ano && (m.ref1 || m.ref2 || m.ref3))
+        ? `${m.ano - 1}: ${m.ref1 || '-'} | ${m.ano - 2}: ${m.ref2 || '-'} | ${m.ano - 3}: ${m.ref3 || '-'}`
+        : '';
+
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${nomePersp}</td>
+        <td>${nomeObj}</td>
+        <td>${indicador.indicador || ''}</td>
+        <td>${gestorNome}</td>
+        <td>${m.ano || ''}</td>
+        <td>${tipoLabel}</td>
+        <td>${m.metas?.jan || ''}</td>
+        <td>${m.metas?.fev || ''}</td>
+        <td>${m.metas?.mar || ''}</td>
+        <td>${m.metas?.abr || ''}</td>
+        <td>${m.metas?.mai || ''}</td>
+        <td>${m.metas?.jun || ''}</td>
+        <td>${m.metas?.jul || ''}</td>
+        <td>${m.metas?.ago || ''}</td>
+        <td>${m.metas?.set || ''}</td>
+        <td>${m.metas?.out || ''}</td>
+        <td>${m.metas?.nov || ''}</td>
+        <td>${m.metas?.dez || ''}</td>
+        <td>${faixasTexto}</td>
+        <td>${referenciasTexto}</td>
+        <td>${m.status === 'final' ? 'Definitiva' : 'Rascunho'}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function exportarMetasCSV() {
+    const rows = [];
+    const header = [
+      'Perspectiva',
+      'Objetivo Estratégico',
+      'Indicador',
+      'Gestor',
+      'Ano das metas',
+      'Tipo de cálculo',
+      'Meta Jan', 'Meta Fev', 'Meta Mar', 'Meta Abr', 'Meta Mai', 'Meta Jun',
+      'Meta Jul', 'Meta Ago', 'Meta Set', 'Meta Out', 'Meta Nov', 'Meta Dez',
+      'Azul de', 'Azul até',
+      'Verde de', 'Verde até',
+      'Amarelo de', 'Amarelo até',
+      'Vermelho abaixo de',
+      'Ref ano-1', 'Valor ref ano-1',
+      'Ref ano-2', 'Valor ref ano-2',
+      'Ref ano-3', 'Valor ref ano-3',
+      'Status'
+    ];
+    rows.push(header);
+
+    const filtroPersp = document.getElementById('filtro-metas-perspectiva')?.value || '';
+    const filtroObj = document.getElementById('filtro-metas-objetivo')?.value || '';
+    const filtroInd = document.getElementById('filtro-metas-indicador')?.value || '';
+
+    appData.metas.forEach(m => {
+      const indicador = appData.indicators.find(i => i.id === m.indicadorId);
+      if (!indicador) return;
+      const obj = appData.objectives.find(o => o.id === indicador.objetivoId);
+      const persp = appData.perspectives.find(p => p.id === indicador.perspectivaId);
+      const nomePersp = persp ? persp.nome : '';
+      const nomeObj = obj ? obj.nome : '';
+      const gestorNome = getGestorNomeById(indicador.gestorId);
+
+      if (filtroPersp && indicador.perspectivaId !== filtroPersp) return;
+      if (filtroObj && indicador.objetivoId !== filtroObj) return;
+      if (filtroInd && indicador.id !== filtroInd) return;
+
+      let tipoLabel = '';
+      if (m.tipoCalculo === 'mensal') tipoLabel = 'Mensal (mês isolado)';
+      else if (m.tipoCalculo === 'acum_soma') tipoLabel = 'Acumulado (YTD - soma)';
+      else if (m.tipoCalculo === 'acum_media') tipoLabel = 'Acumulado (YTD - média)';
+
+      const ano = m.ano || '';
+      const refAno1 = ano ? (ano - 1).toString() : '';
+      const refAno2 = ano ? (ano - 2).toString() : '';
+      const refAno3 = ano ? (ano - 3).toString() : '';
+
+      rows.push([
+        nomePersp,
+        nomeObj,
+        indicador.indicador || '',
+        gestorNome,
+        ano,
+        tipoLabel,
+        m.metas?.jan || '',
+        m.metas?.fev || '',
+        m.metas?.mar || '',
+        m.metas?.abr || '',
+        m.metas?.mai || '',
+        m.metas?.jun || '',
+        m.metas?.jul || '',
+        m.metas?.ago || '',
+        m.metas?.set || '',
+        m.metas?.out || '',
+        m.metas?.nov || '',
+        m.metas?.dez || '',
+        m.faixas?.azulDe || '',
+        m.faixas?.azulAte || '',
+        m.faixas?.verdeDe || '',
+        m.faixas?.verdeAte || '',
+        m.faixas?.amareloDe || '',
+        m.faixas?.amareloAte || '',
+        m.faixas?.vermelhoAbaixoDe || '',
+        refAno1,
+        m.ref1 || '',
+        refAno2,
+        m.ref2 || '',
+        refAno3,
+        m.ref3 || '',
+        m.status === 'final' ? 'Definitiva' : 'Rascunho'
+      ]);
+    });
+
+    const csvBody = rows.map(r =>
+      r.map(field => {
+        const val = (field || '').toString().replace(/"/g, '""');
+        return `"${val}"`;
+      }).join(';')
+    ).join('\r\n');
+
+    const csvContent = '\uFEFF' + csvBody;
+
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'metas_indicadores.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  // ==========================
+  // INICIALIZAÇÃO
+  // ==========================
+  carregarDados();
+  updateAdminEditingUI();
+  renderTabelaGestores();
+  atualizarCombosGestores();
+  atualizarGestorSelectGestorTab();
+  renderTabelaPerspectivas();
+  atualizarCombosPerspectivas();
+  renderTabelaObjetivos();
+  atualizarObjetivosSelectAdminIndicadores();
+  atualizarCombosFiltrosResultados();
+  renderTabelaGestorIndicadores();
+  renderTabelaAdminIndicadores();
+  renderTabelaResultados();
+
+  // Inicialização específica das METAS
+  atualizarGestorMetasSelect();
+  renderTabelaMetasIndicadores();
+  renderTabelaAdminMetas();
+  atualizarCombosFiltrosMetas();
+  renderTabelaRelatorioMetas();
+
 </script>
 
-</body>
+{adminPassword: "lade2025",…}
+adminPassword
+: 
+"lade2025"
+indicators
+: 
+[{id: "IDmiepch7vf1hja", perspectivaId: "IDmieoy31fctrph", objetivoId: "IDmiep17lvcbbui",…},…]
+managers
+: 
+[{id: "IDmieowm9le47nr", nome: "Ronaldy"}, {id: "IDmieowr3xvvo3s", nome: "Igor"},…]
+metas
+: 
+[]
+objectives
+: 
+[{id: "IDmiep17lvcbbui", perspectivaId: "IDmieoy31fctrph",…},…]
+perspectives
+: 
+[{id: "IDmieoy31fctrph", nome: "Financeira e Sustentabilidade"},…]
+0
+: 
+{id: "IDmieoy31fctrph", nome: "Financeira e Sustentabilidade"}
+1
+: 
+{id: "IDmieoy9kmzih5j", nome: "Mercado e Clientes"}
+2
+: 
+{id: "IDmieoyivi5vij3", nome: "Tecnologia e Processos"}
+3
+: 
+{id: "IDmieoz93g1m5bd", nome: "Aprendizagem e Crescimento"}</body>
 </html>
