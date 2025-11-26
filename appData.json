@@ -1,0 +1,620 @@
+{
+  "adminPassword": "lade2025",
+  "perspectives": [
+    {
+      "id": "IDmi8zeljuzhry2",
+      "nome": "Financeiro e Sustentabilidade"
+    },
+    {
+      "id": "IDmi8zesxa4atdg",
+      "nome": "Clientes e Mercado"
+    },
+    {
+      "id": "IDmi8zfiy5ob032",
+      "nome": "Tecnologia e Processos"
+    },
+    {
+      "id": "IDmi8zfvgmv9i6v",
+      "nome": "Aprendizagem e Conhecimento"
+    }
+  ],
+  "objectives": [
+    {
+      "id": "IDmi8zghr4vpfze",
+      "perspectivaId": "IDmi8zeljuzhry2",
+      "nome": "Crescer em lucratividade e geração de caixa para a sustentabilidade do negócio",
+      "gestorId": "IDmi8zcp1cm9ub2"
+    },
+    {
+      "id": "IDmi8zgzfrwosuq",
+      "perspectivaId": "IDmi8zeljuzhry2",
+      "nome": "Otimizar performance financeira por meio de eficiência operacional e alocação estratégica de recursos",
+      "gestorId": "IDmi8zcp1cm9ub2"
+    },
+    {
+      "id": "IDmi8zhkzucdapz",
+      "perspectivaId": "IDmi8zesxa4atdg",
+      "nome": "Posicionar a marca LS no mercado de “welness”.",
+      "gestorId": "IDmi8zdgzmv2bfi"
+    },
+    {
+      "id": "IDmi8zhxpyrp84k",
+      "perspectivaId": "IDmi8zesxa4atdg",
+      "nome": "Aprimorar a experiência do cliente ao longo de toda a jornada",
+      "gestorId": "IDmi8zdgzmv2bfi"
+    },
+    {
+      "id": "IDmi8ziyw3oz626",
+      "perspectivaId": "IDmi8zesxa4atdg",
+      "nome": "Diversificar o portfólio de produtos e soluções integradas LS",
+      "gestorId": "IDmi8zip4ucih71"
+    },
+    {
+      "id": "IDmi8zjs7497r1f",
+      "perspectivaId": "IDmi8zesxa4atdg",
+      "nome": "Expandir a base de clientes e ampliar presença nacional e internacional",
+      "gestorId": "IDmi8zjlkfhhv57"
+    },
+    {
+      "id": "IDmi8zkocuztpgc",
+      "perspectivaId": "IDmi8zesxa4atdg",
+      "nome": "Reforçar o posicionamento científico e mercadológico, fortalecendo a marca LS junto à comunidade e saúde e do público fina",
+      "gestorId": "IDmi8zdgzmv2bfi"
+    },
+    {
+      "id": "IDmi8zles4xitq4",
+      "perspectivaId": "IDmi8zfiy5ob032",
+      "nome": "Desenvolver excelência operacional integrada",
+      "gestorId": "IDmi8zczpa6ezdx"
+    },
+    {
+      "id": "IDmi8zlpog9ftvl",
+      "perspectivaId": "IDmi8zfiy5ob032",
+      "nome": "Estruturar governança e inteligência de dados para decisões estratégicas",
+      "gestorId": "IDmi8zczpa6ezdx"
+    },
+    {
+      "id": "IDmi8zm7ali9pou",
+      "perspectivaId": "IDmi8zfiy5ob032",
+      "nome": "Reforçar segurança, compliance, integridade e conformidade regulatória",
+      "gestorId": "IDmi8zczpa6ezdx"
+    },
+    {
+      "id": "IDmi8zmmi5t8c6n",
+      "perspectivaId": "IDmi8zfiy5ob032",
+      "nome": "Integrar a jornada funcional (marketing, comercial, editorial, acadêmico, eventos e clínica) em um ecossistema digital único",
+      "gestorId": "IDmi8zczpa6ezdx"
+    },
+    {
+      "id": "IDmi8zndkotxfs8",
+      "perspectivaId": "IDmi8zfvgmv9i6v",
+      "nome": "Desenvolver lideranças e competências estratégicas para alta performance",
+      "gestorId": "IDmi8zcv9irswqd"
+    },
+    {
+      "id": "IDmi8zns8myuj7z",
+      "perspectivaId": "IDmi8zfvgmv9i6v",
+      "nome": "Desenvolver uma cultura de gestão de desempenho colaborativa, baseada em metas claras, alinhamento de expectativas e melhoria contínua das equipes.",
+      "gestorId": "IDmi8zcv9irswqd"
+    },
+    {
+      "id": "IDmi8zo3yhn5ymx",
+      "perspectivaId": "IDmi8zfvgmv9i6v",
+      "nome": "Consolidar cultura organizacional orientada para resultados,responsabilização (accountability) e ética",
+      "gestorId": "IDmi8zcv9irswqd"
+    }
+  ],
+  "managers": [
+    {
+      "id": "IDmi8zcp1cm9ub2",
+      "nome": "Ronaldy"
+    },
+    {
+      "id": "IDmi8zcv9irswqd",
+      "nome": "Izadora"
+    },
+    {
+      "id": "IDmi8zczpa6ezdx",
+      "nome": "Igor"
+    },
+    {
+      "id": "IDmi8zdczvnhi6g",
+      "nome": "Renata Magron"
+    },
+    {
+      "id": "IDmi8zdgzmv2bfi",
+      "nome": "Perla"
+    },
+    {
+      "id": "IDmi8zip4ucih71",
+      "nome": "Bruna"
+    },
+    {
+      "id": "IDmi8zjlkfhhv57",
+      "nome": "Dalton"
+    }
+  ],
+  "indicators": [
+    {
+      "id": "IDmi8zrk9syrfsn",
+      "gestorId": "IDmi8zcp1cm9ub2",
+      "perspectivaId": "IDmi8zeljuzhry2",
+      "objetivoId": "IDmi8zghr4vpfze",
+      "indicador": "E B I T D A",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T21:45:00.395Z"
+    },
+    {
+      "id": "IDmi8zt7eau7w5q",
+      "gestorId": "IDmi8zcp1cm9ub2",
+      "perspectivaId": "IDmi8zeljuzhry2",
+      "objetivoId": "IDmi8zghr4vpfze",
+      "indicador": "Faturamento",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:06:10.738Z"
+    },
+    {
+      "id": "IDmi8ztqon74ugu",
+      "gestorId": "IDmi8zcp1cm9ub2",
+      "perspectivaId": "IDmi8zeljuzhry2",
+      "objetivoId": "IDmi8zgzfrwosuq",
+      "indicador": "Inadimplência",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:07:06.066Z"
+    },
+    {
+      "id": "IDmi8zv0k7dpd1n",
+      "gestorId": "IDmi8zcp1cm9ub2",
+      "perspectivaId": "IDmi8zeljuzhry2",
+      "objetivoId": "IDmi8zgzfrwosuq",
+      "indicador": "Margem de Contribuição",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:07:35.191Z"
+    },
+    {
+      "id": "IDmi8zwe6rvmpru",
+      "gestorId": "IDmi8zcv9irswqd",
+      "perspectivaId": "IDmi8zfvgmv9i6v",
+      "objetivoId": "IDmi8zndkotxfs8",
+      "indicador": "Índice de Gestão LS (Composto)",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:08:39.507Z"
+    },
+    {
+      "id": "IDmi8zx6ihq3aon",
+      "gestorId": "IDmi8zcv9irswqd",
+      "perspectivaId": "IDmi8zfvgmv9i6v",
+      "objetivoId": "IDmi8zns8myuj7z",
+      "indicador": "Avaliação de Desempenho 180o.",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:09:16.217Z"
+    },
+    {
+      "id": "IDmi8zzu157dc34",
+      "gestorId": "IDmi8zcv9irswqd",
+      "perspectivaId": "IDmi8zfvgmv9i6v",
+      "objetivoId": "IDmi8zo3yhn5ymx",
+      "indicador": "Índice de receita por vendas \"per capita\".",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:11:20.009Z"
+    },
+    {
+      "id": "IDmi900trs52vun",
+      "gestorId": "IDmi8zcv9irswqd",
+      "perspectivaId": "IDmi8zfvgmv9i6v",
+      "objetivoId": "IDmi8zo3yhn5ymx",
+      "indicador": "Índice de conformidade de processos auditados",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:12:15.883Z"
+    },
+    {
+      "id": "IDmi9036fcz5im0",
+      "gestorId": "IDmi8zcv9irswqd",
+      "perspectivaId": "IDmi8zfvgmv9i6v",
+      "objetivoId": "IDmi8zns8myuj7z",
+      "indicador": "Índice de atendimento de metas individuais",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:13:56.040Z"
+    },
+    {
+      "id": "IDmi907mfno7g94",
+      "gestorId": "IDmi8zdgzmv2bfi",
+      "perspectivaId": "IDmi8zesxa4atdg",
+      "objetivoId": "IDmi8zhkzucdapz",
+      "indicador": "Menções de palavras-chave",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:17:23.411Z"
+    },
+    {
+      "id": "IDmi9084wgofsnm",
+      "gestorId": "IDmi8zdgzmv2bfi",
+      "perspectivaId": "IDmi8zesxa4atdg",
+      "objetivoId": "IDmi8zhkzucdapz",
+      "indicador": "Números de materiais estratégicos",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:17:47.344Z"
+    },
+    {
+      "id": "IDmi908htvypyao",
+      "gestorId": "IDmi8zdgzmv2bfi",
+      "perspectivaId": "IDmi8zesxa4atdg",
+      "objetivoId": "IDmi8zhkzucdapz",
+      "indicador": "CAC",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:18:04.099Z"
+    },
+    {
+      "id": "IDmi908tulqqn0a",
+      "gestorId": "IDmi8zdgzmv2bfi",
+      "perspectivaId": "IDmi8zesxa4atdg",
+      "objetivoId": "IDmi8zhxpyrp84k",
+      "indicador": "NPS",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:18:19.677Z"
+    },
+    {
+      "id": "IDmi909j9e043qg",
+      "gestorId": "IDmi8zdgzmv2bfi",
+      "perspectivaId": "IDmi8zesxa4atdg",
+      "objetivoId": "IDmi8zhxpyrp84k",
+      "indicador": "Tempo de resolução de demandas",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:19:07.348Z"
+    },
+    {
+      "id": "IDmi90a4upg1luv",
+      "gestorId": "IDmi8zdgzmv2bfi",
+      "perspectivaId": "IDmi8zesxa4atdg",
+      "objetivoId": "IDmi8zhxpyrp84k",
+      "indicador": "Taxa de adoção de produto",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:19:20.593Z"
+    },
+    {
+      "id": "IDmi90ajjn4meco",
+      "gestorId": "IDmi8zdgzmv2bfi",
+      "perspectivaId": "IDmi8zesxa4atdg",
+      "objetivoId": "IDmi8zhxpyrp84k",
+      "indicador": "LTV",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:19:39.635Z"
+    },
+    {
+      "id": "IDmi90b788zy6dv",
+      "gestorId": "IDmi8zdgzmv2bfi",
+      "perspectivaId": "IDmi8zesxa4atdg",
+      "objetivoId": "IDmi8zkocuztpgc",
+      "indicador": "Participação em eventos científicos",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:20:10.328Z"
+    },
+    {
+      "id": "IDmi90bpk2n8flx",
+      "gestorId": "IDmi8zdgzmv2bfi",
+      "perspectivaId": "IDmi8zesxa4atdg",
+      "objetivoId": "IDmi8zkocuztpgc",
+      "indicador": "CPA",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:20:34.082Z"
+    },
+    {
+      "id": "IDmi90cj4lndx0n",
+      "gestorId": "IDmi8zdgzmv2bfi",
+      "perspectivaId": "IDmi8zesxa4atdg",
+      "objetivoId": "IDmi8zkocuztpgc",
+      "indicador": "Número de novas publicações",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:21:12.405Z"
+    },
+    {
+      "id": "IDmi90dlh1xgvc6",
+      "gestorId": "IDmi8zjlkfhhv57",
+      "perspectivaId": "IDmi8zesxa4atdg",
+      "objetivoId": "IDmi8zjs7497r1f",
+      "indicador": "Número de novos alunos",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:22:02.101Z"
+    },
+    {
+      "id": "IDmi90e07o2upzm",
+      "gestorId": "IDmi8zjlkfhhv57",
+      "perspectivaId": "IDmi8zesxa4atdg",
+      "objetivoId": "IDmi8zjs7497r1f",
+      "indicador": "Taxa de conversão do funil",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:22:21.204Z"
+    },
+    {
+      "id": "IDmi90ew0pg2npr",
+      "gestorId": "IDmi8zjlkfhhv57",
+      "perspectivaId": "IDmi8zesxa4atdg",
+      "objetivoId": "IDmi8zjs7497r1f",
+      "indicador": "CPA",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:23:02.425Z"
+    },
+    {
+      "id": "IDmi90fnoksgkwe",
+      "gestorId": "IDmi8zip4ucih71",
+      "perspectivaId": "IDmi8zesxa4atdg",
+      "objetivoId": "IDmi8ziyw3oz626",
+      "indicador": "Número de novos produtos ou soluções (ver aderência)",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:23:38.276Z"
+    },
+    {
+      "id": "IDmi90gjf2d4mat",
+      "gestorId": "IDmi8zip4ucih71",
+      "perspectivaId": "IDmi8zesxa4atdg",
+      "objetivoId": "IDmi8ziyw3oz626",
+      "indicador": "Índice de adesão a novos produtos",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:24:34.648Z"
+    },
+    {
+      "id": "IDmi90hd1cxwmwp",
+      "gestorId": "IDmi8zip4ucih71",
+      "perspectivaId": "IDmi8zesxa4atdg",
+      "objetivoId": "IDmi8ziyw3oz626",
+      "indicador": "Receita proveniente de novos produtos",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:24:57.792Z"
+    },
+    {
+      "id": "IDmi90mb5kf16e7",
+      "gestorId": "IDmi8zczpa6ezdx",
+      "perspectivaId": "IDmi8zfiy5ob032",
+      "objetivoId": "IDmi8zles4xitq4",
+      "indicador": "Percentual de desempenho de projetos",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:28:48.632Z"
+    },
+    {
+      "id": "IDmi90ne6stgbh5",
+      "gestorId": "IDmi8zczpa6ezdx",
+      "perspectivaId": "IDmi8zfiy5ob032",
+      "objetivoId": "IDmi8zles4xitq4",
+      "indicador": "Efetividade dos planos de ação",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:29:55.165Z"
+    },
+    {
+      "id": "IDmi90on7ntxvgu",
+      "gestorId": "IDmi8zczpa6ezdx",
+      "perspectivaId": "IDmi8zfiy5ob032",
+      "objetivoId": "IDmi8zles4xitq4",
+      "indicador": "Percentual de conformidade de processos",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:30:37.571Z"
+    },
+    {
+      "id": "IDmi90pbb6g41ec",
+      "gestorId": "IDmi8zczpa6ezdx",
+      "perspectivaId": "IDmi8zfiy5ob032",
+      "objetivoId": "IDmi8zlpog9ftvl",
+      "indicador": "Índice de Qualidade dos Dados",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:31:08.802Z"
+    },
+    {
+      "id": "IDmi90pwvqppng9",
+      "gestorId": "IDmi8zczpa6ezdx",
+      "perspectivaId": "IDmi8zfiy5ob032",
+      "objetivoId": "IDmi8zlpog9ftvl",
+      "indicador": "Percentual de Dados Padronizados",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:31:36.758Z"
+    },
+    {
+      "id": "IDmi90qc8yyz81o",
+      "gestorId": "IDmi8zczpa6ezdx",
+      "perspectivaId": "IDmi8zfiy5ob032",
+      "objetivoId": "IDmi8zlpog9ftvl",
+      "indicador": "Percentual de Políticas e Normas de Dados Atualizadas",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:31:56.674Z"
+    },
+    {
+      "id": "IDmi90r46e360sx",
+      "gestorId": "IDmi8zczpa6ezdx",
+      "perspectivaId": "IDmi8zfiy5ob032",
+      "objetivoId": "IDmi8zm7ali9pou",
+      "indicador": "Cumprimento do plano de auditorias",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-21T15:32:32.870Z"
+    }
+  ],
+  "metas": []
+}

@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema de Fichas de Indicadores de Desempenho</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+    }
+    header {
+      background: #004d7a;
+      color: #fff;
+      padding: 10px 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 20px;
+    }
+    nav {
+      display: flex;
+      background: #e0e0e0;
+      border-bottom: 1px solid #ccc;
+    }
+    nav button {
+      flex: 1;
+      padding: 8px;
+      border: none;
+      background: #e0e0e0;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    nav button.active {
+      background: #fff;
+      border-bottom: 2px solid #004d7a;
+    }
+    main {
+      padding: 10px 20px 30px 20px;
+    }
+    .tab {
+      display: none;
+      background: #fff;
+      padding: 15px;
+      border-radius: 4px;
+      box-shadow: 0 0 4px rgba(0,0,0,0.1);
+      margin-top: 10px;
+    }
+    .tab.active {
+      display: block;
+    }
+    h2 {
+      margin-top: 0;
+      font-size: 18px;
+      color: #004d7a;
+    }
+    h3 {
+      margin-top: 15px;
+      font-size: 15px;
+      color: #004d7a;
+    }
+    h4 {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #004d7a;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .form-group {
+      margin-bottom: 8px;
+      flex: 1;
+      min-width: 180px;
+    }
+    label {
+      display: block;
+      font-size: 12px;
+      margin-bottom: 2px;
+    }
+    input[type="text"],
+    input[type="number"],
+    input[type="password"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 4px;
+      font-size: 12px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+    }
+    textarea {
+      min-height: 50px;
+      resize: vertical;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      margin-top: 8px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 4px;
+      vertical-align: top;
+    }
+    th {
+      background: #f0f0f0;
+    }
+    tr:nth-child(even) {
+      background: #fafafa;
+    }
+    .btn-primary {
+      background: #004d7a;
+      color: #fff;
+      border: 1px solid #004d7a;
+      border-radius: 4px;
+      padding: 5px 10px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .btn-secondary {
+      background: #e0e0e0;
+      color: #333;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 5px 10px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .btn-danger {
+      background: #b71c1c;
+      color: #fff;
+      border: 1px solid #b71c1c;
+      border-radius: 4px;
+      padding: 5px 10px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .btn-success {
+      background: #2e7d32;
+      color: #fff;
+      border: 1px solid #2e7d32;
+      border-radius: 4px;
+      padding: 5px 10px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .btn-small {
+      padding: 3px 6px;
+      font-size: 11px;
+    }
+    .message {
+      font-size: 12px;
+      margin: 5px 0;
+      padding: 5px;
+      border-radius: 3px;
+    }
+    .message.info {
+      background: #e3f2fd;
+      color: #0d47a1;
+      border: 1px solid #90caf9;
+    }
+    .message.success {
+      background: #e8f5e9;
+      color: #1b5e20;
+      border: 1px solid #a5d6a7;
+    }
+    .message.error {
+      background: #ffebee;
+      color: #b71c1c;
+      border: 1px solid #ef9a9a;
+    }
+    .highlight-final {
+      font-weight: bold;
+      color: #1b5e20;
+    }
+    @media print {
+      body {
+        background: #fff;
+      }
+      header, nav, .no-print {
+        display: none !important;
+      }
+      main {
+        padding: 0;
+      }
+      table {
+        font-size: 10px;
+      }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+<header>
+  <h1>Sistema de Fichas de Indicadores de Desempenho</h1>
+</header>
+
+<nav class="no-print">
+  <button class="active" data-tab="tab-gestor">GESTOR RESPONSÁVEL</button>
+  <button data-tab="tab-admin">ADMIN</button>
+  <button data-tab="tab-orientacoes">ORIENTAÇÕES</button>
+  <button data-tab="tab-resultados">RESULTADOS</button>
+</nav>
+
+<main>
+  <!-- ABA GESTOR -->
+  <section id="tab-gestor" class="tab active">
+    <h2>Preenchimento da Ficha de Indicadores – Gestor Responsável</h2>
+
+    <div class="message info">
+      Selecione o seu nome como gestor responsável para visualizar e preencher os indicadores sob sua responsabilidade.
+    </div>
+
+    <div class="form-group no-print">
+      <label for="gestor-select">Nome do Gestor Responsável</label>
+      <select id="gestor-select" onchange="onGestorSelecionado()">
+        <option value="">Selecione...</option>
+      </select>
+    </div>
+
+    <div class="no-print">
+      <h3>Indicadores sob sua responsabilidade</h3>
+      <table id="tabela-gestor-indicadores">
+        <thead>
+        <tr>
+          <th>Perspectiva</th>
+          <th>Objetivo Estratégico</th>
+          <th>Indicador</th>
+          <th>Status do Detalhamento</th>
+          <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- via JS -->
+        </tbody>
+      </table>
+    </div>
+
+    <hr>
+
+    <h3>Ficha de Detalhamento Técnico do Indicador</h3>
+    <form id="form-gestor" onsubmit="event.preventDefault();">
+      <input type="hidden" id="indicador-id">
+
+      <div class="row">
+        <div class="form-group">
+          <label>Perspectiva</label>
+          <input type="text" id="perspectiva-nome" disabled>
+        </div>
+        <div class="form-group">
+          <label>Objetivo Estratégico</label>
+          <input type="text" id="objetivo-nome" disabled>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label>Indicador de Desempenho</label>
+          <input type="text" id="indicador-nome" disabled>
+        </div>
+        <div class="form-group">
+          <label>Unidade de Medida do Indicador</label>
+          <input type="text" id="unidade-medida" placeholder="Ex.: %, R$, nº de ocorrências, índice, etc.">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Descrição Operacional do Indicador</label>
+        <textarea id="descricao-operacional" placeholder="Explique o que o indicador mede e como é interpretado."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Fórmula de Cálculo do Indicador</label>
+        <textarea id="formula" placeholder="Descreva a fórmula de cálculo: numerador, denominador, multiplicadores, filtros etc."></textarea>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label>Fonte dos Dados</label>
+          <input type="text" id="fonte-dados" placeholder="Sistema, planilha, relatório, base de dados etc.">
+        </div>
+        <div class="form-group">
+          <label>Periodicidade de Apuração</label>
+          <input type="text" id="periodicidade" placeholder="Mensal, trimestral, anual, evento etc.">
+        </div>
+        <div class="form-group">
+          <label>Polaridade do Indicador</label>
+          <input type="text" id="polaridade" placeholder="Quanto maior melhor / Quanto menor melhor / Faixa ideal etc.">
+        </div>
+      </div>
+
+      <div id="gestor-msg" class="message info no-print">
+        Selecione um indicador da lista para preencher ou editar os detalhes.
+      </div>
+
+      <div class="no-print" style="margin-top: 10px;">
+        <button type="button" class="btn-secondary" onclick="salvarIndicadorGestor('draft')">Salvar rascunho</button>
+        <button type="button" class="btn-success" onclick="salvarIndicadorGestor('final')">Salvar definitivo (travar indicador)</button>
+        <button type="button" class="btn-secondary" onclick="limparFormulario()">Limpar formulário</button>
+      </div>
+
+      <p class="message info no-print" style="margin-top: 10px;">
+        Atenção: ao salvar como <strong>definitivo</strong>, o indicador ficará bloqueado para edição.
+        A liberação somente poderá ser feita pelo ADMIN.
+      </p>
+    </form>
+  </section>
+
+  <!-- ABA ADMIN -->
+  <section id="tab-admin" class="tab">
+    <h2>Administração do Sistema (ADMIN)</h2>
+
+    <!-- Área de login sempre visível -->
+    <div id="admin-login-area" class="no-print">
+      <div class="row">
+        <div class="form-group">
+          <label for="admin-password">Senha do ADMIN</label>
+          <input type="password" id="admin-password" placeholder="Digite a senha do ADMIN">
+        </div>
+        <div class="form-group" style="align-self: flex-end;">
+          <button class="btn-primary" onclick="loginAdmin()">Entrar / Revalidar senha</button>
+        </div>
+      </div>
+      <div id="admin-login-msg" class="message info" style="margin-top: 10px;">
+        Senha padrão inicial: <strong>admin123</strong>. Após o login, você pode alterá-la.
+      </div>
+    </div>
+
+    <!-- Área protegida visível somente com ADMIN logado -->
+    <div id="admin-protected" style="display:none;">
+      <hr>
+
+      <div class="row no-print">
+        <div class="form-group">
+          <label for="admin-new-password">Nova senha do ADMIN</label>
+          <input type="password" id="admin-new-password" placeholder="Digite a nova senha">
+        </div>
+        <div class="form-group" style="align-self: flex-end;">
+          <button id="btn-alterar-senha" class="btn-secondary" onclick="alterarSenhaAdmin()">Alterar senha</button>
+        </div>
+      </div>
+
+      <hr>
+
+      <h3>Cadastro de Gestores Responsáveis</h3>
+      <div class="row no-print">
+        <div class="form-group">
+          <label for="novo-gestor">Nome do Gestor Responsável</label>
+          <input type="text" id="novo-gestor" placeholder="Nome completo do gestor">
+        </div>
+        <div class="form-group" style="align-self: flex-end;">
+          <button id="btn-adicionar-gestor" class="btn-primary" onclick="adicionarGestor()">Adicionar Gestor</button>
+        </div>
+      </div>
+      <table id="tabela-gestores">
+        <thead>
+        <tr>
+          <th>Gestor Responsável</th>
+          <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- via JS -->
+        </tbody>
+      </table>
+
+      <hr>
+
+      <h3>Cadastro de Perspectivas</h3>
+      <div class="row no-print">
+        <div class="form-group">
+          <label for="nova-perspectiva">Nome da Perspectiva</label>
+          <input type="text" id="nova-perspectiva" placeholder="Ex.: Financeira, Clientes, Processos, Pessoas etc.">
+        </div>
+        <div class="form-group" style="align-self: flex-end;">
+          <button id="btn-adicionar-perspectiva" class="btn-primary" onclick="adicionarPerspectiva()">Adicionar Perspectiva</button>
+        </div>
+      </div>
+      <table id="tabela-perspectivas">
+        <thead>
+        <tr>
+          <th>Perspectiva</th>
+          <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- via JS -->
+        </tbody>
+      </table>
+
+      <hr>
+
+      <h3>Cadastro de Objetivos Estratégicos (vinculados à Perspectiva e ao Gestor)</h3>
+      <div class="row no-print">
+        <div class="form-group">
+          <label for="perspectiva-objetivo-select">Perspectiva</label>
+          <select id="perspectiva-objetivo-select">
+            <option value="">Selecione...</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="gestor-objetivo-select">Gestor Responsável</label>
+          <select id="gestor-objetivo-select">
+            <option value="">Selecione...</option>
+          </select>
+        </div>
+      </div>
+      <div class="row no-print">
+        <div class="form-group">
+          <label for="novo-objetivo-nome">Nome do Objetivo Estratégico</label>
+          <input type="text" id="novo-objetivo-nome" placeholder="Iniciar com verbo de ação: Aumentar, Desenvolver, Aprimorar etc.">
+        </div>
+        <div class="form-group" style="align-self: flex-end;">
+          <button id="btn-adicionar-objetivo" class="btn-primary" onclick="adicionarObjetivo()">Adicionar Objetivo</button>
+        </div>
+      </div>
+      <table id="tabela-objetivos">
+        <thead>
+        <tr>
+          <th>Perspectiva</th>
+          <th>Objetivo Estratégico</th>
+          <th>Gestor Responsável</th>
+          <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- via JS -->
+        </tbody>
+      </table>
+
+      <hr>
+
+      <h3>Cadastro de Indicadores de Desempenho</h3>
+      <div class="row no-print">
+        <div class="form-group">
+          <label for="objetivo-indicador-select">Objetivo Estratégico</label>
+          <select id="objetivo-indicador-select">
+            <option value="">Selecione...</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="novo-indicador-nome">Nome do Indicador de Desempenho</label>
+          <input type="text" id="novo-indicador-nome" placeholder="Ex.: Margem Líquida (%)">
+        </div>
+        <div class="form-group" style="align-self: flex-end;">
+          <button id="btn-adicionar-indicador" class="btn-primary" onclick="adicionarIndicadorAdmin()">Adicionar Indicador</button>
+        </div>
+      </div>
+
+      <h4>Lista de Indicadores (Admin)</h4>
+      <table id="tabela-admin-indicadores">
+        <thead>
+        <tr>
+          <th>Perspectiva</th>
+          <th>Objetivo Estratégico</th>
+          <th>Indicador</th>
+          <th>Gestor Responsável</th>
+          <th>Status</th>
+          <th>Ações (ADMIN)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- via JS -->
+        </tbody>
+      </table>
+
+      <hr>
+
+      <h3>Importar cadastro de indicadores via planilha Excel</h3>
+      <p class="message info no-print" id="excel-import-msg">
+        Utilize uma planilha Excel com colunas <strong>Perspectiva</strong>, <strong>Objetivo Estratégico</strong> e
+        <strong>Indicador Estratégico</strong>. Os registros serão incluídos ou atualizados automaticamente na base de
+        perspectivas, objetivos e indicadores.
+      </p>
+      <div class="row no-print">
+        <div class="form-group">
+          <label for="excel-import">Arquivo da planilha (.xlsx, .xls ou .csv)</label>
+          <input type="file" id="excel-import" accept=".xlsx,.xls,.csv">
+        </div>
+        <div class="form-group" style="align-self: flex-end;">
+          <button class="btn-primary" onclick="importarIndicadoresExcel()">Importar planilha</button>
+        </div>
+      </div>
+
+      <div class="no-print" style="margin-top: 10px;">
+        <button class="btn-secondary" onclick="exportarBaseDistribuida()">Exportar base distribuída (JSON)</button>
+        <span style="font-size: 12px; margin-left: 8px;">
+          Baixe o arquivo <strong>appData.json</strong> e atualize o mesmo arquivo no GitHub para sincronizar a base distribuída com os demais usuários.
+        </span>
+      </div>
+
+    </div> <!-- fim admin-protected -->
+  </section>
+
+  <!-- ABA ORIENTAÇÕES -->
+  <section id="tab-orientacoes" class="tab">
+    <h2>Orientações para Preenchimento da Ficha de Indicadores</h2>
+    <p>
+      Esta aba pode conter as orientações gerais para os gestores sobre preenchimento da ficha,
+      exemplos de indicadores, boas práticas de definição de metas e esclarecimentos sobre o uso do sistema.
+    </p>
+  </section>
+
+  <!-- ABA RESULTADOS -->
+  <section id="tab-resultados" class="tab">
+    <h2>Consulta de Indicadores Cadastrados</h2>
+
+    <div class="row no-print">
+      <div class="form-group">
+        <label for="filtro-perspectiva">Filtrar por Perspectiva</label>
+        <select id="filtro-perspectiva" onchange="renderTabelaResultados()">
+          <option value="">Todas</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="filtro-objetivo">Filtrar por Objetivo Estratégico</label>
+        <select id="filtro-objetivo" onchange="renderTabelaResultados()">
+          <option value="">Todos</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="no-print" style="margin: 10px 0;">
+      <button class="btn-secondary" onclick="exportarCSVResultados()">Exportar lista de indicadores (CSV)</button>
+    </div>
+
+    <table id="tabela-resultados">
+      <thead>
+      <tr>
+        <th>Perspectiva</th>
+        <th>Objetivo Estratégico</th>
+        <th>Indicador</th>
+        <th>Descrição Operacional</th>
+        <th>Fórmula</th>
+        <th>Unidade</th>
+        <th>Fonte</th>
+        <th>Periodicidade</th>
+        <th>Polaridade</th>
+        <th>Gestor Responsável</th>
+        <th>Status</th>
+      </tr>
+      </thead>
+      <tbody>
+      <!-- via JS -->
+      </tbody>
+    </table>
+  </section>
+</main>
+
+<script>
+  // ==========================
+  // DADOS E PERSISTÊNCIA
+  // ==========================
+  const STORAGE_KEY = 'sistemaIndicadoresV2';
+
+  let appData = {
+    adminPassword: 'admin123', // senha padrão inicial
+    perspectives: [],          // {id, nome}
+    objectives: [],            // {id, perspectivaId, nome, gestorId}
+    managers: [],              // {id, nome}
+    indicators: []             // {id, perspectivaId, objetivoId, gestorId, indicador, descricao, formula, unidade, fonte, periodicidade, polaridade, status}
+  };
+
+  function carregarDados() {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      try {
+        const parsed = JSON.parse(raw);
+        appData = Object.assign(appData, parsed);
+      } catch (e) {
+        console.error('Erro ao carregar dados, iniciando estrutura padrão.', e);
+      }
+    }
+  }
+
+  function salvarDados() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
+  }
+
+  function gerarId() {
+    return 'ID' + Date.now().toString(36) + Math.random().toString(36).substring(2, 7);
+  }
+
+  // ==========================
+  // TROCA DE ABAS
+  // ==========================
+  const tabButtons = document.querySelectorAll('nav button');
+  const tabs = document.querySelectorAll('.tab');
+
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.getAttribute('data-tab');
+      tabButtons.forEach(b => b.classList.remove('active'));
+      tabs.forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(target).classList.add('active');
+    });
+  });
+
+  // ==========================
+  // FUNÇÕES AUXILIARES DE BUSCA
+  // ==========================
+  function getGestorNomeById(id) {
+    const g = appData.managers.find(m => m.id === id);
+    return g ? g.nome : '';
+  }
+
+  function getPerspectivaNomeById(id) {
+    const p = appData.perspectives.find(p => p.id === id);
+    return p ? p.nome : '';
+  }
+
+  function getObjetivoNomeById(id) {
+    const o = appData.objectives.find(o => o.id === id);
+    return o ? o.nome : '';
+  }
+
+  // ==========================
+  // CONTROLE DE ADMIN
+  // ==========================
+  let adminLogado = false;
+
+  function loginAdmin() {
+    const senhaInput = document.getElementById('admin-password').value;
+    if (!senhaInput) {
+      alert('Informe a senha do ADMIN.');
+      return;
+    }
+    if (senhaInput === appData.adminPassword) {
+      adminLogado = true;
+      document.getElementById('admin-login-msg').textContent = 'ADMIN autenticado com sucesso.';
+      updateAdminEditingUI();
+    } else {
+      adminLogado = false;
+      document.getElementById('admin-login-msg').textContent = 'Senha incorreta.';
+      updateAdminEditingUI();
+    }
+  }
+
+  function alterarSenhaAdmin() {
+    if (!adminLogado) {
+      alert('Somente o ADMIN autenticado pode alterar a senha.');
+      return;
+    }
+    const novaSenha = document.getElementById('admin-new-password').value.trim();
+    if (!novaSenha) {
+      alert('Informe a nova senha do ADMIN.');
+      return;
+    }
+    appData.adminPassword = novaSenha;
+    salvarDados();
+    document.getElementById('admin-login-msg').textContent = 'Senha do ADMIN alterada com sucesso.';
+    document.getElementById('admin-new-password').value = '';
+  }
+
+  function updateAdminEditingUI() {
+    const adminArea = document.getElementById('admin-protected');
+    if (adminLogado) {
+      adminArea.style.display = 'block';
+    } else {
+      adminArea.style.display = 'none';
+    }
+  }
+
+  // ==========================
+  // CADASTRO DE GESTORES
+  // ==========================
+  function adicionarGestor() {
+    if (!adminLogado) {
+      alert('Somente o ADMIN autenticado pode adicionar gestores.');
+      return;
+    }
+    const nome = document.getElementById('novo-gestor').value.trim();
+    if (!nome) {
+      alert('Informe o nome do gestor.');
+      return;
+    }
+    const id = gerarId();
+    appData.managers.push({ id, nome });
+    salvarDados();
+    document.getElementById('novo-gestor').value = '';
+    renderTabelaGestores();
+    atualizarCombosGestores();
+    atualizarGestorSelectGestorTab();
+  }
+
+  function removerGestor(id) {
+    if (!adminLogado) {
+      alert('Somente o ADMIN autenticado pode excluir gestores.');
+      return;
+    }
+    const temVinculoObjetivo = appData.objectives.some(o => o.gestorId === id);
+    const temVinculoIndicador = appData.indicators.some(i => i.gestorId === id);
+    if (temVinculoObjetivo || temVinculoIndicador) {
+      alert('Não é possível excluir o gestor. Existem objetivos/indicadores vinculados.');
+      return;
+    }
+    appData.managers = appData.managers.filter(m => m.id !== id);
+    salvarDados();
+    renderTabelaGestores();
+    atualizarCombosGestores();
+    atualizarGestorSelectGestorTab();
+  }
+
+  function renderTabelaGestores() {
+    const tbody = document.getElementById('tabela-gestores').querySelector('tbody');
+    tbody.innerHTML = '';
+    appData.managers.forEach(g => {
+      const tr = document.createElement('tr');
+      const tdNome = document.createElement('td');
+      tdNome.textContent = g.nome;
+      const tdAcoes = document.createElement('td');
+      const btnDel = document.createElement('button');
+      btnDel.textContent = 'Excluir';
+      btnDel.className = 'btn-danger btn-small';
+      btnDel.onclick = () => removerGestor(g.id);
+      tdAcoes.appendChild(btnDel);
+      tr.appendChild(tdNome);
+      tr.appendChild(tdAcoes);
+      tbody.appendChild(tr);
+    });
+  }
+
+  function atualizarCombosGestores() {
+    const selects = [
+      document.getElementById('gestor-objetivo-select'),
+      document.getElementById('gestor-select')
+    ];
+    selects.forEach(sel => {
+      if (!sel) return;
+      const valorSelecionado = sel.value;
+      sel.innerHTML = '<option value="">Selecione...</option>';
+      appData.managers.forEach(m => {
+        const opt = document.createElement('option');
+        opt.value = m.id;
+        opt.textContent = m.nome;
+        sel.appendChild(opt);
+      });
+      if (valorSelecionado) {
+        sel.value = valorSelecionado;
+      }
+    });
+  }
+
+  function atualizarGestorSelectGestorTab() {
+    const sel = document.getElementById('gestor-select');
+    if (!sel) return;
+    const valor = sel.value;
+    sel.innerHTML = '<option value="">Selecione...</option>';
+    appData.managers.forEach(m => {
+      const opt = document.createElement('option');
+      opt.value = m.id;
+      opt.textContent = m.nome;
+      sel.appendChild(opt);
+    });
+    sel.value = valor;
+  }
+
+  // ==========================
+  // CADASTRO DE PERSPECTIVAS
+  // ==========================
+  function adicionarPerspectiva() {
+    if (!adminLogado) {
+      alert('Somente o ADMIN autenticado pode adicionar perspectivas.');
+      return;
+    }
+    const nome = document.getElementById('nova-perspectiva').value.trim();
+    if (!nome) {
+      alert('Informe o nome da perspectiva.');
+      return;
+    }
+    const id = gerarId();
+    appData.perspectives.push({ id, nome });
+    salvarDados();
+    document.getElementById('nova-perspectiva').value = '';
+    renderTabelaPerspectivas();
+    atualizarCombosPerspectivas();
+    renderTabelaObjetivos();
+    atualizarObjetivosSelectAdminIndicadores();
+    renderTabelaGestorIndicadores();
+    renderTabelaAdminIndicadores();
+    atualizarCombosFiltrosResultados();
+    renderTabelaResultados();
+  }
+
+  function removerPerspectiva(id) {
+    if (!adminLogado) {
+      alert('Somente o ADMIN autenticado pode excluir perspectivas.');
+      return;
+    }
+    const temObjetivo = appData.objectives.some(o => o.perspectivaId === id);
+    if (temObjetivo) {
+      alert('Não é possível excluir a perspectiva. Existem objetivos vinculados.');
+      return;
+    }
+    appData.perspectives = appData.perspectives.filter(p => p.id !== id);
+    salvarDados();
+    renderTabelaPerspectivas();
+    atualizarCombosPerspectivas();
+    renderTabelaObjetivos();
+    atualizarObjetivosSelectAdminIndicadores();
+    renderTabelaGestorIndicadores();
+    renderTabelaAdminIndicadores();
+    atualizarCombosFiltrosResultados();
+    renderTabelaResultados();
+  }
+
+  function renderTabelaPerspectivas() {
+    const tbody = document.getElementById('tabela-perspectivas').querySelector('tbody');
+    tbody.innerHTML = '';
+    appData.perspectives.forEach(p => {
+      const tr = document.createElement('tr');
+      const tdNome = document.createElement('td');
+      tdNome.textContent = p.nome;
+      const tdAcoes = document.createElement('td');
+      const btnDel = document.createElement('button');
+      btnDel.textContent = 'Excluir';
+      btnDel.className = 'btn-danger btn-small';
+      btnDel.onclick = () => removerPerspectiva(p.id);
+      tdAcoes.appendChild(btnDel);
+      tr.appendChild(tdNome);
+      tr.appendChild(tdAcoes);
+      tbody.appendChild(tr);
+    });
+  }
+
+  function atualizarCombosPerspectivas() {
+    const selPerspObj = document.getElementById('perspectiva-objetivo-select');
+    const selFiltroPersp = document.getElementById('filtro-perspectiva');
+    [selPerspObj, selFiltroPersp].forEach(sel => {
+      if (!sel) return;
+      const valor = sel.value;
+      sel.innerHTML = '<option value="">Selecione...</option>';
+      appData.perspectives.forEach(p => {
+        const opt = document.createElement('option');
+        opt.value = p.id;
+        opt.textContent = p.nome;
+        sel.appendChild(opt);
+      });
+      if (valor) sel.value = valor;
+    });
+  }
+
+  // ==========================
+  // CADASTRO DE OBJETIVOS
+  // ==========================
+  function adicionarObjetivo() {
+    if (!adminLogado) {
+      alert('Somente o ADMIN autenticado pode adicionar objetivos.');
+      return;
+    }
+    const perspectivaId = document.getElementById('perspectiva-objetivo-select').value;
+    const gestorId = document.getElementById('gestor-objetivo-select').value;
+    const nomeObjetivo = document.getElementById('novo-objetivo-nome').value.trim();
+
+    if (!perspectivaId) {
+      alert('Selecione a Perspectiva para o Objetivo.');
+      return;
+    }
+    if (!gestorId) {
+      alert('Selecione o Gestor Responsável pelo Objetivo.');
+      return;
+    }
+    if (!nomeObjetivo) {
+      alert('Informe o nome do Objetivo Estratégico.');
+      return;
+    }
+
+    const id = gerarId();
+    appData.objectives.push({
+      id,
+      perspectivaId,
+      nome: nomeObjetivo,
+      gestorId
+    });
+
+    salvarDados();
+    document.getElementById('novo-objetivo-nome').value = '';
+    renderTabelaObjetivos();
+    atualizarObjetivosSelectAdminIndicadores();
+    renderTabelaGestorIndicadores();
+    atualizarCombosFiltrosResultados();
+    renderTabelaResultados();
+  }
+
+  function removerObjetivo(id) {
+    if (!adminLogado) {
+      alert('Somente o ADMIN autenticado pode excluir objetivos.');
+      return;
+    }
+    const temIndicador = appData.indicators.some(i => i.objetivoId === id);
+    if (temIndicador) {
+      alert('Não é possível excluir o objetivo. Existem indicadores vinculados.');
+      return;
+    }
+    appData.objectives = appData.objectives.filter(o => o.id !== id);
+    salvarDados();
+    renderTabelaObjetivos();
+    atualizarObjetivosSelectAdminIndicadores();
+    renderTabelaGestorIndicadores();
+    atualizarCombosFiltrosResultados();
+    renderTabelaResultados();
+  }
+
+  function renderTabelaObjetivos() {
+    const tbody = document.getElementById('tabela-objetivos').querySelector('tbody');
+    tbody.innerHTML = '';
+    appData.objectives.forEach(o => {
+      const tr = document.createElement('tr');
+      const tdPersp = document.createElement('td');
+      tdPersp.textContent = getPerspectivaNomeById(o.perspectivaId);
+      const tdNome = document.createElement('td');
+      tdNome.textContent = o.nome;
+      const tdGestor = document.createElement('td');
+      tdGestor.textContent = getGestorNomeById(o.gestorId);
+      const tdAcoes = document.createElement('td');
+      const btnDel = document.createElement('button');
+      btnDel.textContent = 'Excluir';
+      btnDel.className = 'btn-danger btn-small';
+      btnDel.onclick = () => removerObjetivo(o.id);
+      tdAcoes.appendChild(btnDel);
+      tr.appendChild(tdPersp);
+      tr.appendChild(tdNome);
+      tr.appendChild(tdGestor);
+      tr.appendChild(tdAcoes);
+      tbody.appendChild(tr);
+    });
+  }
+
+  function atualizarObjetivosSelectAdminIndicadores() {
+    const sel = document.getElementById('objetivo-indicador-select');
+    if (!sel) return;
+    const valor = sel.value;
+    sel.innerHTML = '<option value="">Selecione...</option>';
+    appData.objectives.forEach(o => {
+      const opt = document.createElement('option');
+      opt.value = o.id;
+      const nomePersp = getPerspectivaNomeById(o.perspectivaId);
+      const nomeGestor = getGestorNomeById(o.gestorId);
+      opt.textContent = nomePersp + ' | ' + o.nome + ' | Gestor: ' + nomeGestor;
+      sel.appendChild(opt);
+    });
+    sel.value = valor;
+  }
+
+  // ==========================
+  // CADASTRO DE INDICADORES (ADMIN)
+  // ==========================
+  function adicionarIndicadorAdmin() {
+    if (!adminLogado) {
+      alert('Somente o ADMIN autenticado pode adicionar indicadores.');
+      return;
+    }
+    const objetivoId = document.getElementById('objetivo-indicador-select').value;
+    const nomeIndicador = document.getElementById('novo-indicador-nome').value.trim();
+
+    if (!objetivoId) {
+      alert('Selecione o Objetivo Estratégico para o Indicador.');
+      return;
+    }
+    if (!nomeIndicador) {
+      alert('Informe o nome do Indicador.');
+      return;
+    }
+
+    const obj = appData.objectives.find(o => o.id === objetivoId);
+    if (!obj) {
+      alert('Objetivo não encontrado.');
+      return;
+    }
+    const perspectivaId = obj.perspectivaId;
+    const gestorId = obj.gestorId;
+
+    const id = gerarId();
+    appData.indicators.push({
+      id,
+      perspectivaId,
+      objetivoId,
+      gestorId,
+      indicador: nomeIndicador,
+      descricao: '',
+      formula: '',
+      unidade: '',
+      fonte: '',
+      periodicidade: '',
+      polaridade: '',
+      status: 'draft',
+      updatedAt: new Date().toISOString()
+    });
+
+    salvarDados();
+    document.getElementById('novo-indicador-nome').value = '';
+    renderTabelaAdminIndicadores();
+    renderTabelaGestorIndicadores();
+    atualizarCombosFiltrosResultados();
+    renderTabelaResultados();
+  }
+
+  function liberarEdicaoIndicador(id) {
+    if (!adminLogado) {
+      alert('Somente o ADMIN autenticado pode liberar edição.');
+      return;
+    }
+    const indicador = appData.indicators.find(i => i.id === id);
+    if (!indicador) return;
+    indicador.status = 'draft';
+    salvarDados();
+    renderTabelaAdminIndicadores();
+    renderTabelaGestorIndicadores();
+    atualizarCombosFiltrosResultados();
+    renderTabelaResultados();
+  }
+
+  function removerIndicador(id) {
+    if (!adminLogado) {
+      alert('Somente o ADMIN autenticado pode excluir indicadores.');
+      return;
+    }
+    appData.indicators = appData.indicators.filter(i => i.id !== id);
+    salvarDados();
+    renderTabelaAdminIndicadores();
+    renderTabelaGestorIndicadores();
+    atualizarCombosFiltrosResultados();
+    renderTabelaResultados();
+  }
+
+  function renderTabelaAdminIndicadores() {
+    const tbody = document.getElementById('tabela-admin-indicadores').querySelector('tbody');
+    tbody.innerHTML = '';
+    appData.indicators.forEach(i => {
+      const tr = document.createElement('tr');
+      const tdPersp = document.createElement('td');
+      tdPersp.textContent = getPerspectivaNomeById(i.perspectivaId);
+      const tdObj = document.createElement('td');
+      tdObj.textContent = getObjetivoNomeById(i.objetivoId);
+      const tdInd = document.createElement('td');
+      tdInd.textContent = i.indicador;
+      const tdGestor = document.createElement('td');
+      tdGestor.textContent = getGestorNomeById(i.gestorId);
+      const tdStatus = document.createElement('td');
+      tdStatus.textContent = i.status === 'final' ? 'Definitivo' : 'Rascunho';
+      const tdAcoes = document.createElement('td');
+
+      const btnLiberar = document.createElement('button');
+      btnLiberar.textContent = 'Liberar edição';
+      btnLiberar.className = 'btn-secondary btn-small';
+      btnLiberar.onclick = () => liberarEdicaoIndicador(i.id);
+
+      const btnExcluir = document.createElement('button');
+      btnExcluir.textContent = 'Excluir';
+      btnExcluir.className = 'btn-danger btn-small';
+      btnExcluir.style.marginLeft = '4px';
+      btnExcluir.onclick = () => removerIndicador(i.id);
+
+      tdAcoes.appendChild(btnLiberar);
+      tdAcoes.appendChild(btnExcluir);
+
+      tr.appendChild(tdPersp);
+      tr.appendChild(tdObj);
+      tr.appendChild(tdInd);
+      tr.appendChild(tdGestor);
+      tr.appendChild(tdStatus);
+      tr.appendChild(tdAcoes);
+      tbody.appendChild(tr);
+    });
+  }
+
+  // ==========================
+  // ÁREA DO GESTOR – LISTA E FORMULÁRIO
+  // ==========================
+  function onGestorSelecionado() {
+    renderTabelaGestorIndicadores();
+    limparFormulario();
+  }
+
+  function renderTabelaGestorIndicadores() {
+    const tbody = document.getElementById('tabela-gestor-indicadores').querySelector('tbody');
+    tbody.innerHTML = '';
+    const gestorId = document.getElementById('gestor-select').value;
+    if (!gestorId) return;
+
+    appData.indicators
+      .filter(i => i.gestorId === gestorId)
+      .forEach(i => {
+        const tr = document.createElement('tr');
+        const tdPersp = document.createElement('td');
+        tdPersp.textContent = getPerspectivaNomeById(i.perspectivaId);
+        const tdObj = document.createElement('td');
+        tdObj.textContent = getObjetivoNomeById(i.objetivoId);
+        const tdInd = document.createElement('td');
+        tdInd.textContent = i.indicador;
+        const tdStatus = document.createElement('td');
+        tdStatus.textContent = i.status === 'final' ? 'Definitivo' : 'Rascunho';
+        const tdAcoes = document.createElement('td');
+        const btnEditar = document.createElement('button');
+        btnEditar.textContent = 'Preencher/Editar';
+        btnEditar.className = 'btn-primary btn-small';
+        btnEditar.onclick = () => carregarIndicadorNoFormulario(i.id);
+        tdAcoes.appendChild(btnEditar);
+
+        tr.appendChild(tdPersp);
+        tr.appendChild(tdObj);
+        tr.appendChild(tdInd);
+        tr.appendChild(tdStatus);
+        tr.appendChild(tdAcoes);
+        tbody.appendChild(tr);
+      });
+  }
+
+  function carregarIndicadorNoFormulario(id) {
+    const registro = appData.indicators.find(i => i.id === id);
+    if (!registro) return;
+
+    const gestorId = document.getElementById('gestor-select').value;
+    if (!gestorId || registro.gestorId !== gestorId) {
+      alert('Este indicador pertence a outro gestor. Para visualizá-lo em detalhes, utilize a aba RESULTADOS.');
+      return;
+    }
+
+    document.getElementById('indicador-id').value = registro.id;
+
+    const persp = appData.perspectives.find(p => p.id === registro.perspectivaId);
+    const obj = appData.objectives.find(o => o.id === registro.objetivoId);
+    document.getElementById('perspectiva-nome').value = persp ? persp.nome : '';
+    document.getElementById('objetivo-nome').value = obj ? obj.nome : '';
+    document.getElementById('indicador-nome').value = registro.indicador || '';
+
+    document.getElementById('descricao-operacional').value = registro.descricao || '';
+    document.getElementById('formula').value = registro.formula || '';
+    document.getElementById('unidade-medida').value = registro.unidade || '';
+    document.getElementById('fonte-dados').value = registro.fonte || '';
+    document.getElementById('periodicidade').value = registro.periodicidade || '';
+    document.getElementById('polaridade').value = registro.polaridade || '';
+
+    const msg = document.getElementById('gestor-msg');
+    msg.className = 'message info';
+    msg.textContent = 'Edite os campos e clique em salvar rascunho ou salvar definitivo.';
+  }
+
+  function limparFormulario() {
+    document.getElementById('indicador-id').value = '';
+    document.getElementById('perspectiva-nome').value = '';
+    document.getElementById('objetivo-nome').value = '';
+    document.getElementById('indicador-nome').value = '';
+    document.getElementById('descricao-operacional').value = '';
+    document.getElementById('formula').value = '';
+    document.getElementById('unidade-medida').value = '';
+    document.getElementById('fonte-dados').value = '';
+    document.getElementById('periodicidade').value = '';
+    document.getElementById('polaridade').value = '';
+
+    const msg = document.getElementById('gestor-msg');
+    msg.className = 'message info';
+    msg.textContent = 'Selecione um indicador da lista para preencher ou editar os detalhes.';
+  }
+
+  function salvarIndicadorGestor(status) {
+    const id = document.getElementById('indicador-id').value;
+    if (!id) {
+      alert('Selecione um indicador na lista para preencher.');
+      return;
+    }
+    const indicador = appData.indicators.find(i => i.id === id);
+    if (!indicador) {
+      alert('Indicador não encontrado.');
+      return;
+    }
+    const gestorId = document.getElementById('gestor-select').value;
+    if (!gestorId || indicador.gestorId !== gestorId) {
+      alert('Este indicador não está vinculado ao gestor selecionado.');
+      return;
+    }
+
+    indicador.descricao = document.getElementById('descricao-operacional').value.trim();
+    indicador.formula = document.getElementById('formula').value.trim();
+    indicador.unidade = document.getElementById('unidade-medida').value.trim();
+    indicador.fonte = document.getElementById('fonte-dados').value.trim();
+    indicador.periodicidade = document.getElementById('periodicidade').value.trim();
+    indicador.polaridade = document.getElementById('polaridade').value.trim();
+    indicador.status = status === 'final' ? 'final' : 'draft';
+    indicador.updatedAt = new Date().toISOString();
+
+    salvarDados();
+    renderTabelaGestorIndicadores();
+    renderTabelaAdminIndicadores();
+    atualizarCombosFiltrosResultados();
+    renderTabelaResultados();
+
+    const msg = document.getElementById('gestor-msg');
+    msg.className = 'message success';
+    msg.textContent = status === 'final'
+      ? 'Indicador salvo como definitivo e bloqueado para edição.'
+      : 'Rascunho salvo com sucesso.';
+  }
+
+  // ==========================
+  // RESULTADOS – CONSULTA GERAL
+  // ==========================
+  function atualizarCombosFiltrosResultados() {
+    const selPersp = document.getElementById('filtro-perspectiva');
+    const selObj = document.getElementById('filtro-objetivo');
+    if (!selPersp || !selObj) return;
+
+    const valorPersp = selPersp.value;
+    const valorObj = selObj.value;
+
+    selPersp.innerHTML = '<option value="">Todas</option>';
+    appData.perspectives.forEach(p => {
+      const opt = document.createElement('option');
+      opt.value = p.id;
+      opt.textContent = p.nome;
+      selPersp.appendChild(opt);
+    });
+    selPersp.value = valorPersp;
+
+    selObj.innerHTML = '<option value="">Todos</option>';
+    appData.objectives.forEach(o => {
+      const opt = document.createElement('option');
+      opt.value = o.id;
+      const nomePersp = getPerspectivaNomeById(o.perspectivaId);
+      opt.textContent = nomePersp + ' | ' + o.nome;
+      selObj.appendChild(opt);
+    });
+    selObj.value = valorObj;
+  }
+
+  function renderTabelaResultados() {
+    const tbody = document.getElementById('tabela-resultados').querySelector('tbody');
+    tbody.innerHTML = '';
+
+    const filtroPersp = document.getElementById('filtro-perspectiva').value;
+    const filtroObj = document.getElementById('filtro-objetivo').value;
+
+    appData.indicators
+      .filter(i => (!filtroPersp || i.perspectivaId === filtroPersp))
+      .filter(i => (!filtroObj || i.objetivoId === filtroObj))
+      .forEach(i => {
+        const tr = document.createElement('tr');
+        const tdPersp = document.createElement('td');
+        tdPersp.textContent = getPerspectivaNomeById(i.perspectivaId);
+        const tdObj = document.createElement('td');
+        tdObj.textContent = getObjetivoNomeById(i.objetivoId);
+        const tdInd = document.createElement('td');
+        tdInd.textContent = i.indicador || '';
+        const tdDesc = document.createElement('td');
+        tdDesc.textContent = i.descricao || '';
+        const tdForm = document.createElement('td');
+        tdForm.textContent = i.formula || '';
+        const tdUni = document.createElement('td');
+        tdUni.textContent = i.unidade || '';
+        const tdFonte = document.createElement('td');
+        tdFonte.textContent = i.fonte || '';
+        const tdPer = document.createElement('td');
+        tdPer.textContent = i.periodicidade || '';
+        const tdPol = document.createElement('td');
+        tdPol.textContent = i.polaridade || '';
+        const tdGestor = document.createElement('td');
+        tdGestor.textContent = getGestorNomeById(i.gestorId);
+        const tdStatus = document.createElement('td');
+        tdStatus.textContent = i.status === 'final' ? 'Definitivo' : 'Rascunho';
+
+        tr.appendChild(tdPersp);
+        tr.appendChild(tdObj);
+        tr.appendChild(tdInd);
+        tr.appendChild(tdDesc);
+        tr.appendChild(tdForm);
+        tr.appendChild(tdUni);
+        tr.appendChild(tdFonte);
+        tr.appendChild(tdPer);
+        tr.appendChild(tdPol);
+        tr.appendChild(tdGestor);
+        tr.appendChild(tdStatus);
+        tbody.appendChild(tr);
+      });
+  }
+
+  function exportarCSVResultados() {
+    const rows = [];
+    const header = [
+      'Perspectiva',
+      'Objetivo Estratégico',
+      'Indicador',
+      'Descrição Operacional',
+      'Fórmula',
+      'Unidade',
+      'Fonte',
+      'Periodicidade',
+      'Polaridade',
+      'Gestor',
+      'Status'
+    ];
+    rows.push(header);
+
+    const filtroPersp = document.getElementById('filtro-perspectiva').value;
+    const filtroObj = document.getElementById('filtro-objetivo').value;
+
+    appData.indicators
+      .filter(i => (!filtroPersp || i.perspectivaId === filtroPersp))
+      .filter(i => (!filtroObj || i.objetivoId === filtroObj))
+      .forEach(i => {
+        const persp = appData.perspectives.find(p => p.id === i.perspectivaId);
+        const obj = appData.objectives.find(o => o.id === i.objetivoId);
+        const nomePersp = persp ? persp.nome : '';
+        const nomeObj = obj ? obj.nome : '';
+        const gestorNome = getGestorNomeById(i.gestorId);
+        rows.push([
+          nomePersp,
+          nomeObj,
+          i.indicador || '',
+          i.descricao || '',
+          i.formula || '',
+          i.unidade || '',
+          i.fonte || '',
+          i.periodicidade || '',
+          i.polaridade || '',
+          gestorNome,
+          i.status === 'final' ? 'Definitivo' : 'Rascunho'
+        ]);
+      });
+
+    const csvContent = rows.map(r =>
+      r.map(c => '"' + String(c).replace(/"/g, '""') + '"').join(';')
+    ).join('\r\n');
+
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'fichas_indicadores.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  // ==========================
+  // IMPORTAÇÃO VIA PLANILHA EXCEL E EXPORTAÇÃO DA BASE
+  // ==========================
+  function normalizarTextoImportacao(valor) {
+    if (valor === undefined || valor === null) return '';
+    return String(valor).trim();
+  }
+
+  function importarIndicadoresExcel() {
+    if (!adminLogado) {
+      alert('Somente o ADMIN autenticado pode importar dados de planilha.');
+      return;
+    }
+    const input = document.getElementById('excel-import');
+    if (!input || !input.files || !input.files[0]) {
+      alert('Selecione um arquivo de planilha para importação.');
+      return;
+    }
+    const file = input.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+      let workbook;
+      try {
+        const data = e.target.result;
+        workbook = XLSX.read(data, { type: 'binary' });
+      } catch (err) {
+        console.error('Erro ao ler o arquivo Excel:', err);
+        alert('Não foi possível ler o arquivo Excel. Verifique o formato do arquivo.');
+        return;
+      }
+
+      const sheetName = workbook.SheetNames[0];
+      const sheet = workbook.Sheets[sheetName];
+      const linhas = XLSX.utils.sheet_to_json(sheet, { defval: '' });
+
+      if (!linhas || !linhas.length) {
+        alert('A planilha não contém registros para importação.');
+        return;
+      }
+
+      let novasPerspectivas = 0;
+      let novosObjetivos = 0;
+      let novosIndicadores = 0;
+      let indicadoresAtualizados = 0;
+
+      function obterCampoNormalizado(linha, aliases) {
+        const chaves = Object.keys(linha);
+        for (const alias of aliases) {
+          const chave = chaves.find(k => k.toString().trim().toLowerCase() === alias);
+          if (chave) {
+            return normalizarTextoImportacao(linha[chave]);
+          }
+        }
+        return '';
+      }
+
+      linhas.forEach(linha => {
+        const nomePersp = obterCampoNormalizado(linha, [
+          'perspectiva',
+          'perspectiva estratégica',
+          'perspectivas'
+        ]);
+        const nomeObjetivo = obterCampoNormalizado(linha, [
+          'objetivo estratégico',
+          'objetivos estratégicos',
+          'objetivo',
+          'objetivos'
+        ]);
+        const nomeIndicador = obterCampoNormalizado(linha, [
+          'indicador estratégico',
+          'indicadores estratégicos',
+          'indicador',
+          'indicadores'
+        ]);
+
+        if (!nomePersp || !nomeObjetivo || !nomeIndicador) {
+          return;
+        }
+
+        let perspectiva = appData.perspectives.find(
+          p => p.nome && p.nome.toLowerCase() === nomePersp.toLowerCase()
+        );
+        if (!perspectiva) {
+          perspectiva = {
+            id: gerarId(),
+            nome: nomePersp
+          };
+          appData.perspectives.push(perspectiva);
+          novasPerspectivas++;
+        }
+
+        let objetivo = appData.objectives.find(
+          o =>
+            o.perspectivaId === perspectiva.id &&
+            o.nome &&
+            o.nome.toLowerCase() === nomeObjetivo.toLowerCase()
+        );
+        if (!objetivo) {
+          objetivo = {
+            id: gerarId(),
+            perspectivaId: perspectiva.id,
+            nome: nomeObjetivo,
+            gestorId: ''
+          };
+          appData.objectives.push(objetivo);
+          novosObjetivos++;
+        }
+
+        let indicador = appData.indicators.find(
+          i =>
+            i.objetivoId === objetivo.id &&
+            i.indicador &&
+            i.indicador.toLowerCase() === nomeIndicador.toLowerCase()
+        );
+        if (!indicador) {
+          indicador = {
+            id: gerarId(),
+            perspectivaId: perspectiva.id,
+            objetivoId: objetivo.id,
+            gestorId: objetivo.gestorId || '',
+            indicador: nomeIndicador,
+            descricao: '',
+            formula: '',
+            unidade: '',
+            fonte: '',
+            periodicidade: '',
+            polaridade: '',
+            status: 'draft',
+            updatedAt: new Date().toISOString()
+          };
+          appData.indicators.push(indicador);
+          novosIndicadores++;
+        } else {
+          indicador.perspectivaId = perspectiva.id;
+          indicador.objetivoId = objetivo.id;
+          indicadoresAtualizados++;
+        }
+      });
+
+      salvarDados();
+
+      // Recarregar estruturas de tela
+      updateAdminEditingUI();
+      renderTabelaPerspectivas();
+      atualizarCombosPerspectivas();
+      renderTabelaObjetivos();
+      atualizarObjetivosSelectAdminIndicadores();
+      renderTabelaAdminIndicadores();
+      renderTabelaGestorIndicadores();
+      atualizarCombosFiltrosResultados();
+      renderTabelaResultados();
+
+      const msgEl = document.getElementById('excel-import-msg');
+      const resumo =
+        'Importação concluída. Novas perspectivas: ' + novasPerspectivas +
+        ', novos objetivos: ' + novosObjetivos +
+        ', novos indicadores: ' + novosIndicadores +
+        ', indicadores atualizados: ' + indicadoresAtualizados + '.';
+
+      if (msgEl) {
+        msgEl.className = 'message success no-print';
+        msgEl.textContent = resumo;
+      } else {
+        alert(resumo);
+      }
+    };
+
+    reader.readAsBinaryString(file);
+  }
+
+  function exportarBaseDistribuida() {
+    if (!adminLogado) {
+      alert('Somente o ADMIN autenticado pode exportar a base distribuída.');
+      return;
+    }
+    const conteudo = JSON.stringify(appData, null, 2);
+    const blob = new Blob([conteudo], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'appData.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  // ==========================
+  // INICIALIZAÇÃO
+  // ==========================
+  carregarDados();
+  updateAdminEditingUI();
+  renderTabelaGestores();
+  atualizarCombosGestores();
+  atualizarGestorSelectGestorTab();
+  renderTabelaPerspectivas();
+  atualizarCombosPerspectivas();
+  renderTabelaObjetivos();
+  atualizarObjetivosSelectAdminIndicadores();
+  atualizarCombosFiltrosResultados();
+  renderTabelaGestorIndicadores();
+  renderTabelaAdminIndicadores();
+  renderTabelaResultados();
+</script>
+</body>
+</html>
