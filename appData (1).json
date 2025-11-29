@@ -1,0 +1,614 @@
+{
+  "adminPassword": "lade2025",
+  "perspectives": [
+    {
+      "id": "IDmieoy31fctrph",
+      "nome": "Financeira e  Sustentabilidade"
+    },
+    {
+      "id": "IDmieoy9kmzih5j",
+      "nome": "Mercado e Clientes"
+    },
+    {
+      "id": "IDmieoyivi5vij3",
+      "nome": "Tecnologia e Processos"
+    },
+    {
+      "id": "IDmieoz93g1m5bd",
+      "nome": "Aprendizagem e Crescimento"
+    }
+  ],
+  "objectives": [
+    {
+      "id": "IDmiep17lvcbbui",
+      "perspectivaId": "IDmieoy31fctrph",
+      "nome": "Crescer em lucratividade e geração de caixa para a sustentabilidade do negócio",
+      "gestorId": "IDmieowm9le47nr"
+    },
+    {
+      "id": "IDmiep1yk9kt8xk",
+      "perspectivaId": "IDmieoy31fctrph",
+      "nome": "Otimizar performance financeira por meio de eficiência operacional e alocação estratégica de recursos",
+      "gestorId": "IDmieowm9le47nr"
+    },
+    {
+      "id": "IDmiep3yvo3sy2y",
+      "perspectivaId": "IDmieoy9kmzih5j",
+      "nome": "Diversificar o portfólio de produtos e soluções integradas LS",
+      "gestorId": "IDmieox7sog2jyk"
+    },
+    {
+      "id": "IDmiep51jpsfipc",
+      "perspectivaId": "IDmieoy9kmzih5j",
+      "nome": "Expandir a base de clientes e ampliar presença nacional e internacional",
+      "gestorId": "IDmieoxbw28kul7"
+    },
+    {
+      "id": "IDmiep5kbyxld87",
+      "perspectivaId": "IDmieoy9kmzih5j",
+      "nome": "Aprimorar a experiência do cliente ao longo de toda a jornada",
+      "gestorId": "IDmieoxhpmaq84k"
+    },
+    {
+      "id": "IDmiep65ilzqz4k",
+      "perspectivaId": "IDmieoy9kmzih5j",
+      "nome": "Posicionar a marca LS no mercado de “welness”.",
+      "gestorId": "IDmieoxhpmaq84k"
+    },
+    {
+      "id": "IDmiep6ok2s9wya",
+      "perspectivaId": "IDmieoy9kmzih5j",
+      "nome": "Desenvolver lideranças e competências estratégicas para alta performance",
+      "gestorId": "IDmieowzwsyes18"
+    },
+    {
+      "id": "IDmiep74csvr7y8",
+      "perspectivaId": "IDmieoy9kmzih5j",
+      "nome": "Desenvolver uma cultura de gestão de desempenho colaborativa, baseada em metas claras, alinhamento de expectativas e melhoria contínua das equipes.",
+      "gestorId": "IDmieowzwsyes18"
+    },
+    {
+      "id": "IDmiep7h3gldyas",
+      "perspectivaId": "IDmieoy9kmzih5j",
+      "nome": "Consolidar cultura organizacional orientada para resultados,responsabilização (accountability) e ética",
+      "gestorId": "IDmieowzwsyes18"
+    },
+    {
+      "id": "IDmiep983uqimlc",
+      "perspectivaId": "IDmieoy9kmzih5j",
+      "nome": "Reforçar o posicionamento científico e mercadológico, fortalecendo a marca LS junto à comunidade e saúde e do público final",
+      "gestorId": "IDmieoxhpmaq84k"
+    },
+    {
+      "id": "IDmieqmexvuf1al",
+      "perspectivaId": "IDmieoyivi5vij3",
+      "nome": "Desenvolver excelência operacional integrada",
+      "gestorId": "IDmieowr3xvvo3s"
+    },
+    {
+      "id": "IDmieqqb3zcsa0f",
+      "perspectivaId": "IDmieoyivi5vij3",
+      "nome": "Estruturar governança e inteligência de dados para decisões estratégicas",
+      "gestorId": "IDmieowr3xvvo3s"
+    },
+    {
+      "id": "IDmieqqt3927u3e",
+      "perspectivaId": "IDmieoyivi5vij3",
+      "nome": "Reforçar segurança, compliance, integridade e conformidade regulatória",
+      "gestorId": "IDmieowr3xvvo3s"
+    }
+  ],
+  "managers": [
+    {
+      "id": "IDmieowm9le47nr",
+      "nome": "Ronaldy"
+    },
+    {
+      "id": "IDmieowr3xvvo3s",
+      "nome": "Igor"
+    },
+    {
+      "id": "IDmieowzwsyes18",
+      "nome": "Izadora"
+    },
+    {
+      "id": "IDmieox7sog2jyk",
+      "nome": "Bruna"
+    },
+    {
+      "id": "IDmieoxbw28kul7",
+      "nome": "Dalton"
+    },
+    {
+      "id": "IDmieoxhpmaq84k",
+      "nome": "Perla"
+    },
+    {
+      "id": "IDmieoxqlffc8ug",
+      "nome": "Renata Magron"
+    }
+  ],
+  "indicators": [
+    {
+      "id": "IDmiepch7vf1hja",
+      "perspectivaId": "IDmieoy31fctrph",
+      "objetivoId": "IDmiep17lvcbbui",
+      "gestorId": "IDmieowm9le47nr",
+      "indicador": "E B I T D A",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T14:59:51.211Z"
+    },
+    {
+      "id": "IDmiepdktmnmlmz",
+      "perspectivaId": "IDmieoy31fctrph",
+      "objetivoId": "IDmiep17lvcbbui",
+      "gestorId": "IDmieowm9le47nr",
+      "indicador": "Faturamento",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:00:42.538Z"
+    },
+    {
+      "id": "IDmiepe5idkh61s",
+      "perspectivaId": "IDmieoy31fctrph",
+      "objetivoId": "IDmiep1yk9kt8xk",
+      "gestorId": "IDmieowm9le47nr",
+      "indicador": "Inadimplência",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:01:09.349Z"
+    },
+    {
+      "id": "IDmiepel2mws0nt",
+      "perspectivaId": "IDmieoy31fctrph",
+      "objetivoId": "IDmiep1yk9kt8xk",
+      "gestorId": "IDmieowm9le47nr",
+      "indicador": "Margem de Contribuição",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:01:29.518Z"
+    },
+    {
+      "id": "IDmiepf84nut1i1",
+      "perspectivaId": "IDmieoy9kmzih5j",
+      "objetivoId": "IDmiep3yvo3sy2y",
+      "gestorId": "IDmieox7sog2jyk",
+      "indicador": "Número de novos produtos ou soluções (ver aderência)",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:01:59.399Z"
+    },
+    {
+      "id": "IDmiepfkpxwdvir",
+      "perspectivaId": "IDmieoy9kmzih5j",
+      "objetivoId": "IDmiep3yvo3sy2y",
+      "gestorId": "IDmieox7sog2jyk",
+      "indicador": "Índice de adesão a novos produtos",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:02:15.717Z"
+    },
+    {
+      "id": "IDmiepfuxydashq",
+      "perspectivaId": "IDmieoy9kmzih5j",
+      "objetivoId": "IDmiep3yvo3sy2y",
+      "gestorId": "IDmieox7sog2jyk",
+      "indicador": "Receita proveniente de novos produtos",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:02:28.966Z"
+    },
+    {
+      "id": "IDmiephaw6e6tpn",
+      "perspectivaId": "IDmieoy9kmzih5j",
+      "objetivoId": "IDmiep51jpsfipc",
+      "gestorId": "IDmieoxbw28kul7",
+      "indicador": "Número de novos alunos",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:03:36.294Z"
+    },
+    {
+      "id": "IDmiephn1hdbnfl",
+      "perspectivaId": "IDmieoy9kmzih5j",
+      "objetivoId": "IDmiep51jpsfipc",
+      "gestorId": "IDmieoxbw28kul7",
+      "indicador": "Taxa de conversão do funil",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:03:52.038Z"
+    },
+    {
+      "id": "IDmiephxz0d2624",
+      "perspectivaId": "IDmieoy9kmzih5j",
+      "objetivoId": "IDmiep51jpsfipc",
+      "gestorId": "IDmieoxbw28kul7",
+      "indicador": "CPA",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:04:06.204Z"
+    },
+    {
+      "id": "IDmiepiipy8740t",
+      "perspectivaId": "IDmieoy9kmzih5j",
+      "objetivoId": "IDmiep5kbyxld87",
+      "gestorId": "IDmieoxhpmaq84k",
+      "indicador": "LTV",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:04:33.094Z"
+    },
+    {
+      "id": "IDmiepitauntllc",
+      "perspectivaId": "IDmieoy9kmzih5j",
+      "objetivoId": "IDmiep5kbyxld87",
+      "gestorId": "IDmieoxhpmaq84k",
+      "indicador": "Taxa de adoção de produto",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:04:46.806Z"
+    },
+    {
+      "id": "IDmiepjcpz0dzjr",
+      "perspectivaId": "IDmieoy9kmzih5j",
+      "objetivoId": "IDmiep5kbyxld87",
+      "gestorId": "IDmieoxhpmaq84k",
+      "indicador": "Tempo de resolução de demandas",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:05:11.975Z"
+    },
+    {
+      "id": "IDmiepjtfbbx7w7",
+      "perspectivaId": "IDmieoy9kmzih5j",
+      "objetivoId": "IDmiep65ilzqz4k",
+      "gestorId": "IDmieoxhpmaq84k",
+      "indicador": "Menções de palavras-chave",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:05:33.623Z"
+    },
+    {
+      "id": "IDmiepk93qir64a",
+      "perspectivaId": "IDmieoy9kmzih5j",
+      "objetivoId": "IDmiep65ilzqz4k",
+      "gestorId": "IDmieoxhpmaq84k",
+      "indicador": "Números de materiais estratégicos",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:05:53.942Z"
+    },
+    {
+      "id": "IDmiepkkf3chpfg",
+      "perspectivaId": "IDmieoy9kmzih5j",
+      "objetivoId": "IDmiep65ilzqz4k",
+      "gestorId": "IDmieoxhpmaq84k",
+      "indicador": "CAC",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:06:08.607Z"
+    },
+    {
+      "id": "IDmieplydajj7xd",
+      "perspectivaId": "IDmieoy9kmzih5j",
+      "objetivoId": "IDmiep5kbyxld87",
+      "gestorId": "IDmieoxhpmaq84k",
+      "indicador": "NPS",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:07:13.342Z"
+    },
+    {
+      "id": "IDmiepmosauultm",
+      "perspectivaId": "IDmieoy9kmzih5j",
+      "objetivoId": "IDmiep6ok2s9wya",
+      "gestorId": "IDmieowzwsyes18",
+      "indicador": "Índice de Gestão LS (Composto)",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:07:47.578Z"
+    },
+    {
+      "id": "IDmiepn612z47wo",
+      "perspectivaId": "IDmieoy9kmzih5j",
+      "objetivoId": "IDmiep74csvr7y8",
+      "gestorId": "IDmieowzwsyes18",
+      "indicador": "Avaliação de Desempenho 180o.",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:08:09.926Z"
+    },
+    {
+      "id": "IDmiepnm642bosy",
+      "perspectivaId": "IDmieoy9kmzih5j",
+      "objetivoId": "IDmiep7h3gldyas",
+      "gestorId": "IDmieowzwsyes18",
+      "indicador": "Índice de receita por vendas \"per capita\".",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:08:30.844Z"
+    },
+    {
+      "id": "IDmiepnzh0rlzek",
+      "perspectivaId": "IDmieoy9kmzih5j",
+      "objetivoId": "IDmiep7h3gldyas",
+      "gestorId": "IDmieowzwsyes18",
+      "indicador": "Índice de conformidade de processos auditados",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:08:48.084Z"
+    },
+    {
+      "id": "IDmiepq72db3nvb",
+      "perspectivaId": "IDmieoy9kmzih5j",
+      "objetivoId": "IDmiep74csvr7y8",
+      "gestorId": "IDmieowzwsyes18",
+      "indicador": "Índice de atendimento de metas individuais",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:10:31.237Z"
+    },
+    {
+      "id": "IDmieprpwfs1bz1",
+      "perspectivaId": "IDmieoy9kmzih5j",
+      "objetivoId": "IDmiep983uqimlc",
+      "gestorId": "IDmieoxhpmaq84k",
+      "indicador": "Participação em eventos científicos",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:11:42.303Z"
+    },
+    {
+      "id": "IDmieprwcbij70n",
+      "perspectivaId": "IDmieoy9kmzih5j",
+      "objetivoId": "IDmiep983uqimlc",
+      "gestorId": "IDmieoxhpmaq84k",
+      "indicador": "CPA",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:11:50.651Z"
+    },
+    {
+      "id": "IDmieps5f125lva",
+      "perspectivaId": "IDmieoy9kmzih5j",
+      "objetivoId": "IDmiep983uqimlc",
+      "gestorId": "IDmieoxhpmaq84k",
+      "indicador": "Número de novas publicações",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:12:02.413Z"
+    },
+    {
+      "id": "IDmieqrfef822io",
+      "perspectivaId": "IDmieoyivi5vij3",
+      "objetivoId": "IDmieqmexvuf1al",
+      "gestorId": "IDmieowr3xvvo3s",
+      "indicador": "Percentual de desempenho de projetos",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:39:28.311Z"
+    },
+    {
+      "id": "IDmieqrqstkgfel",
+      "perspectivaId": "IDmieoyivi5vij3",
+      "objetivoId": "IDmieqmexvuf1al",
+      "gestorId": "IDmieowr3xvvo3s",
+      "indicador": "Efetividade dos planos de ação",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:39:43.085Z"
+    },
+    {
+      "id": "IDmieqs51x6d8jd",
+      "perspectivaId": "IDmieoyivi5vij3",
+      "objetivoId": "IDmieqmexvuf1al",
+      "gestorId": "IDmieowr3xvvo3s",
+      "indicador": "Percentual de conformidade de processos",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:40:01.557Z"
+    },
+    {
+      "id": "IDmieqsow5mk7w9",
+      "perspectivaId": "IDmieoyivi5vij3",
+      "objetivoId": "IDmieqqb3zcsa0f",
+      "gestorId": "IDmieowr3xvvo3s",
+      "indicador": "Percentual de Dados Padronizados",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:40:27.269Z"
+    },
+    {
+      "id": "IDmiequgn293u0d",
+      "perspectivaId": "IDmieoyivi5vij3",
+      "objetivoId": "IDmieqqb3zcsa0f",
+      "gestorId": "IDmieowr3xvvo3s",
+      "indicador": "Índice de Qualidade dos Dados",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:41:49.886Z"
+    },
+    {
+      "id": "IDmieqv6xpw2hxr",
+      "perspectivaId": "IDmieoyivi5vij3",
+      "objetivoId": "IDmieqqb3zcsa0f",
+      "gestorId": "IDmieowr3xvvo3s",
+      "indicador": "Percentual de Políticas e Normas de Dados Atualizadas",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:42:23.965Z"
+    },
+    {
+      "id": "IDmieqvqn8zh8mu",
+      "perspectivaId": "IDmieoyivi5vij3",
+      "objetivoId": "IDmieqqt3927u3e",
+      "gestorId": "IDmieowr3xvvo3s",
+      "indicador": "Cumprimento do plano de auditorias",
+      "descricao": "",
+      "formula": "",
+      "unidade": "",
+      "fonte": "",
+      "periodicidade": "",
+      "polaridade": "",
+      "status": "draft",
+      "updatedAt": "2025-11-25T15:42:49.508Z"
+    }
+  ],
+  "metas": []
+}
